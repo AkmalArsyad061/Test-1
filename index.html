@@ -2,7 +2,7 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Walimatul Urus — Noorazlina & Rosli</title>
   
   <!-- Tailwind CSS -->
@@ -35,11 +35,17 @@
   </script>
 
   <style>
-    * { box-sizing: border-box; }
+    * { 
+      box-sizing: border-box; 
+      -webkit-tap-highlight-color: transparent;
+    }
     html, body {
-      overflow: hidden;
       background-color: #0f1821;
       height: 100%;
+      height: 100dvh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
     }
     .font-script { font-family: 'Great Vibes', cursive; }
     .font-serif-classic { font-family: 'Cormorant Garamond', serif; }
@@ -54,16 +60,20 @@
       pointer-events: none;
     }
 
-    /* Multi-Page Fade Transition */
+    /* Multi-Page Transition */
     .page-section {
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
-      transform: translateY(12px);
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+      transform: translateY(8px);
       position: absolute;
-      inset: 0;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
       overflow-y: auto;
-      padding-bottom: 90px;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 110px; /* Ruang khas supaya kandungan tidak terlindung menu bawah */
     }
 
     .page-section.active-page {
@@ -71,12 +81,17 @@
       visibility: visible;
       transform: translateY(0);
     }
+
+    /* Sokongan Home Bar iPhone / Safe Area */
+    .safe-bottom {
+      padding-bottom: max(10px, env(safe-area-inset-bottom));
+    }
   </style>
 </head>
-<body class="text-slate-800 font-sans-body flex justify-center items-center min-h-screen">
+<body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- Mobile Frame (Strict 420px max-width) -->
-  <div id="mainContainer" class="w-full max-w-[420px] bg-slate-50 h-screen sm:h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
+  <!-- Mobile Frame Container (Lock 100dvh pada Telefon) -->
+  <div id="mainContainer" class="w-full max-w-[420px] bg-slate-50 h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
     <!-- 1. COVER / ENVELOPE OVERLAY -->
     <div id="coverModal" class="cover-overlay fixed inset-0 z-50 bg-ashblue-950 flex flex-col items-center justify-center p-6 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl">
@@ -139,10 +154,6 @@
             <div class="bg-ashblue-800 p-2 rounded-xl border border-ashblue-700"><span id="mins" class="block text-xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Minit</span></div>
             <div class="bg-ashblue-800 p-2 rounded-xl border border-ashblue-700"><span id="secs" class="block text-xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Saat</span></div>
           </div>
-        </div>
-
-        <div class="pt-2 text-ashblue-600 flex flex-col items-center gap-1 opacity-70">
-          <span class="text-[10px] font-semibold tracking-widest uppercase">Gunakan Menu Di Bawah Untuk Maklumat Lanjut</span>
         </div>
 
       </div>
@@ -248,33 +259,33 @@
             <h4 class="text-[11px] font-bold text-ashblue-800 uppercase tracking-wider">Senarai Ucapan (<span id="jumlahKomen">0</span>)</h4>
             <button onclick="toggleOwnerMode()" id="btnOwner" class="text-[10px] text-ashblue-600 underline font-medium">Mode Owner: OFF</button>
           </div>
-          <div id="senaraiKomen" class="space-y-3 max-h-72 overflow-y-auto pr-1 text-xs divide-y divide-ashblue-100">
+          <div id="senaraiKomen" class="space-y-3 max-h-60 overflow-y-auto pr-1 text-xs divide-y divide-ashblue-100">
           </div>
         </div>
 
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- BOTTOM NAVIGATION BAR                      -->
-    <!-- ========================================== -->
-    <nav class="absolute bottom-0 inset-x-0 bg-ashblue-900/95 backdrop-blur-md border-t border-amber-300/20 px-6 py-2.5 z-40 flex justify-around items-center text-white">
-      <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-0.5 text-amber-300 transition">
+    <!-- ======================================================= -->
+    <!-- BOTTOM NAVIGATION (FIXED & FULLY OPTIMIZED FOR MOBILE)  -->
+    <!-- ======================================================= -->
+    <nav class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-ashblue-900/95 backdrop-blur-md border-t border-amber-300/20 px-6 pt-2.5 safe-bottom z-40 flex justify-around items-center text-white shadow-[0_-4px_20px_rgba(0,0,0,0.3)]">
+      <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-1 text-amber-300 transition py-1">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
-        <span class="text-[9px] font-medium tracking-wider">UTAMA</span>
+        <span class="text-[10px] font-semibold tracking-wider">UTAMA</span>
       </button>
 
-      <button onclick="switchPage('page-details')" id="nav-details" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+      <button onclick="switchPage('page-details')" id="nav-details" class="flex flex-col items-center gap-1 text-ashblue-300 hover:text-amber-300 transition py-1">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <span class="text-[9px] font-medium tracking-wider">MAJLIS</span>
+        <span class="text-[10px] font-semibold tracking-wider">MAJLIS</span>
       </button>
 
-      <button onclick="switchPage('page-comments')" id="nav-comments" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+      <button onclick="switchPage('page-comments')" id="nav-comments" class="flex flex-col items-center gap-1 text-ashblue-300 hover:text-amber-300 transition py-1">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
-        <span class="text-[9px] font-medium tracking-wider">UCAPAN</span>
+        <span class="text-[10px] font-semibold tracking-wider">UCAPAN</span>
       </button>
 
-      <button id="musicToggleBtn" onclick="toggleMuzik()" class="p-2 bg-amber-400 hover:bg-amber-300 text-ashblue-950 rounded-full shadow-md font-bold transition">
+      <button id="musicToggleBtn" onclick="toggleMuzik()" class="p-2.5 bg-amber-400 hover:bg-amber-300 text-ashblue-950 rounded-full shadow-md font-bold transition active:scale-90">
         <svg id="iconPlay" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg id="iconPause" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </button>
