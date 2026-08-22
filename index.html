@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Walimatul Urus — Noorazlina & Rosli</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ashblue: {
+              50: '#f4f7f9',
+              100: '#e3ebf0',
+              200: '#cad8e3',
+              300: '#a3bece',
+              400: '#759cb5',
+              500: '#54809d',
+              600: '#416682',
+              700: '#36536b',
+              800: '#2f465a',
+              900: '#1b2a37',
+              950: '#0f1821'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .font-script { font-family: 'Great Vibes', cursive; }
+    .font-serif-classic { font-family: 'Cormorant Garamond', serif; }
+    .font-sans-body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    
+    .perspective-1000 { perspective: 1000px; }
+    
+    .envelope-card {
+      transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s ease;
+      transform-style: preserve-3d;
+    }
+
+    .envelope-open {
+      transform: rotateX(-100deg) translateY(-120px) scale(0.85);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* Page Fade Transition */
+    .page-section {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+      transform: translateY(15px);
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      padding-bottom: 90px;
+    }
+
+    .page-section.active-page {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .bg-pattern {
+      background-image: radial-gradient(#759cb5 0.75px, transparent 0.75px), radial-gradient(#759cb5 0.75px, #f4f7f9 0.75px);
+      background-size: 30px 30px;
+      background-position: 0 0, 15px 15px;
+    }
+  </style>
+</head>
+<body class="bg-ashblue-950 text-slate-800 font-sans-body flex justify-center items-center min-h-screen p-0 sm:p-4 perspective-1000 overflow-hidden">
+
+  <!-- Mobile Screen Container -->
+  <div id="mainContainer" class="w-full max-w-md bg-slate-50 min-h-screen sm:min-h-[844px] sm:h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden sm:rounded-3xl border-2 border-ashblue-300/40">
+
+    <!-- 1. ENVELOPE / OPENING COVER -->
+    <div id="coverModal" class="envelope-card fixed inset-0 z-50 bg-ashblue-950 max-w-md mx-auto flex flex-col items-center justify-center p-6 text-center text-slate-100">
+      <div class="border-2 border-amber-300/40 p-8 rounded-3xl bg-ashblue-900/90 shadow-2xl w-full max-w-xs space-y-6 relative overflow-hidden">
+        <div class="w-14 h-14 bg-ashblue-800/90 rounded-full flex items-center justify-center mx-auto border border-amber-300/50 text-amber-200 shadow-md">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+
+        <div>
+          <p class="text-amber-300 text-xs tracking-[0.25em] uppercase font-semibold">Walimatul Urus</p>
+          <div class="w-12 h-[1px] bg-amber-300/50 mx-auto my-3"></div>
+          <h1 class="font-script text-6xl text-white pt-2 leading-none">Noorazlina</h1>
+          <p class="text-sm font-serif-classic italic text-amber-200 my-1">&</p>
+          <h1 class="font-script text-6xl text-white leading-none">Rosli</h1>
+        </div>
+        
+        <div class="py-3 border-y border-ashblue-700/80 bg-ashblue-950/40 rounded-xl">
+          <p class="text-[10px] text-ashblue-300 uppercase tracking-widest mb-1">Kepada / Dear Guest:</p>
+          <p id="guestName" class="text-base font-semibold text-amber-100">Tetamu Jemputan</p>
+        </div>
+
+        <button onclick="bukaKad()" class="w-full py-3.5 bg-gradient-to-r from-ashblue-600 to-ashblue-500 hover:from-ashblue-500 hover:to-ashblue-400 text-white font-semibold rounded-xl shadow-lg transition duration-300 flex items-center justify-center gap-2 border border-amber-300/30 active:scale-95">
+          <span>Buka Kad Jemputan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- PAGE 1: UTAMA / HOME -->
+    <div id="page-home" class="page-section active-page bg-pattern">
+      <div class="pt-8 px-6 text-center space-y-6">
+        
+        <div class="flex justify-center items-center gap-2 text-ashblue-600 opacity-60">
+          <div class="h-[1px] w-12 bg-ashblue-400"></div>
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
+          <div class="h-[1px] w-12 bg-ashblue-400"></div>
+        </div>
+
+        <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Perkahwinan</p>
+        
+        <div class="py-4 space-y-2 relative">
+          <div class="absolute inset-0 bg-white/40 backdrop-blur-sm rounded-3xl border border-ashblue-200/80 -z-10 shadow-sm"></div>
+          <h1 class="font-script text-7xl text-ashblue-950 drop-shadow-sm pt-2">Noorazlina</h1>
+          <p class="text-xl font-serif-classic italic text-amber-700 font-semibold">&</p>
+          <h1 class="font-script text-7xl text-ashblue-950 drop-shadow-sm pb-2">Rosli</h1>
+        </div>
+
+        <div class="inline-block bg-ashblue-900 text-amber-200 px-6 py-2 rounded-full text-xs tracking-widest font-semibold shadow-md">
+          JUMAAT | 25 SEPTEMBER 2026
+        </div>
+
+        <div class="bg-white/80 p-5 rounded-2xl border border-ashblue-200/80 shadow-sm space-y-2">
+          <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
+            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
+          </p>
+          <p class="text-[10px] text-ashblue-800 tracking-wider font-bold uppercase">— Surah Ar-Rum: 21</p>
+        </div>
+
+        <div class="bg-ashblue-900 text-white p-4 rounded-2xl border border-amber-300/30 shadow-md">
+          <p class="text-[10px] text-amber-300 tracking-widest uppercase font-semibold mb-3">Menghitung Hari</p>
+          <div class="grid grid-cols-4 gap-2 text-center">
+            <div class="bg-ashblue-800/80 p-2 rounded-xl border border-ashblue-700"><span id="days" class="block text-2xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Hari</span></div>
+            <div class="bg-ashblue-800/80 p-2 rounded-xl border border-ashblue-700"><span id="hours" class="block text-2xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Jam</span></div>
+            <div class="bg-ashblue-800/80 p-2 rounded-xl border border-ashblue-700"><span id="mins" class="block text-2xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Minit</span></div>
+            <div class="bg-ashblue-800/80 p-2 rounded-xl border border-ashblue-700"><span id="secs" class="block text-2xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Saat</span></div>
+          </div>
+        </div>
+
+        <div class="pt-2 animate-bounce text-ashblue-600 flex flex-col items-center gap-1 opacity-70">
+          <span class="text-[10px] font-semibold tracking-widest uppercase">Tatal / Scroll Ke Bawah</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 2: MAJLIS & RSVP -->
+    <div id="page-details" class="page-section bg-pattern">
+      <div class="pt-8 px-6 text-center space-y-6">
+        
+        <div class="space-y-1">
+          <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Atur Cara & Lokasi</h2>
+          <h1 class="font-script text-5xl text-ashblue-900">Maklumat Majlis</h1>
+        </div>
+
+        <div class="bg-white/90 p-6 rounded-2xl border border-ashblue-200 shadow-sm space-y-6">
+          <div class="space-y-1">
+            <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Masa Majlis</h3>
+            <p class="text-base font-semibold text-slate-800">11:00 AM – 4:00 PM</p>
+            <p class="text-xs text-slate-500">25 September 2026 (Jumaat)</p>
+          </div>
+
+          <hr class="border-ashblue-100">
+
+          <div class="space-y-1">
+            <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Lokasi Majlis</h3>
+            <p class="text-base font-semibold text-slate-800">Dewan Majlis Perkahwinan</p>
+            <p class="text-xs text-slate-500">Kuala Lumpur, Malaysia</p>
+          </div>
+
+          <div class="flex gap-3 justify-center pt-2">
+            <a href="https://maps.app.goo.gl/afW8aeptaYxJvXte9" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition flex items-center justify-center gap-2">
+              Google Maps
+            </a>
+            <a href="https://ul.waze.com/ul?venue_id=67567669.675807764.2392511&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition flex items-center justify-center gap-2">
+              Waze
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4">
+          <div class="text-center">
+            <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
+            <p class="text-[11px] text-slate-500 mt-0.5">Sila sahkan kehadiran anda melalui WhatsApp</p>
+          </div>
+
+          <form onsubmit="hantarRSVP(event)" class="space-y-3 text-xs text-left">
+            <div>
+              <label class="block text-slate-600 mb-1 font-medium">Nama Penuh</label>
+              <input type="text" id="rsvpNama" required placeholder="Masukkan nama anda" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
+            </div>
+
+            <div>
+              <label class="block text-slate-600 mb-1 font-medium">Status Kehadiran</label>
+              <select id="rsvpStatus" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-slate-600 mb-1 font-medium">Bilangan Pax</label>
+              <select id="rsvpPax" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
+                <option value="1">1 Orang</option>
+                <option value="2">2 Orang</option>
+                <option value="3">3 Orang</option>
+                <option value="4">4 Orang</option>
+              </select>
+            </div>
+
+            <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2">
+              Hantar Ke WhatsApp
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PAGE 3: UCAPAN / WISHBOOK -->
+    <div id="page-comments" class="page-section bg-pattern">
+      <div class="pt-8 px-6 space-y-6">
+        
+        <div class="text-center space-y-1">
+          <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Titipan Doa</h2>
+          <h1 class="font-script text-5xl text-ashblue-900">Ucapan Tetamu</h1>
+        </div>
+
+        <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4">
+          <form onsubmit="tambahKomen(event)" class="space-y-3 text-xs">
+            <div>
+              <input type="text" id="komenNama" required placeholder="Nama Anda" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
+            </div>
+            <div>
+              <textarea id="komenTeks" required rows="3" placeholder="Tuliskan ucapan & doa anda di sini..." class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50"></textarea>
+            </div>
+            <button type="submit" class="w-full py-3 bg-ashblue-700 hover:bg-ashblue-800 text-white font-semibold rounded-xl shadow-md transition">
+              Kirim Ucapan
+            </button>
+          </form>
+        </div>
+
+        <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-3">
+          <div class="flex justify-between items-center">
+            <h4 class="text-[11px] font-bold text-ashblue-800 uppercase tracking-wider">Senarai Ucapan (<span id="jumlahKomen">0</span>)</h4>
+            <button onclick="toggleOwnerMode()" id="btnOwner" class="text-[10px] text-ashblue-600 underline font-medium">Mode Owner: OFF</button>
+          </div>
+          <div id="senaraiKomen" class="space-y-3 max-h-60 overflow-y-auto pr-1 text-xs divide-y divide-ashblue-100">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="absolute bottom-0 inset-x-0 bg-ashblue-900/95 backdrop-blur-md border-t border-amber-300/20 px-6 py-2 z-40 flex justify-around items-center text-white">
+      <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-0.5 text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">UTAMA</span>
+      </button>
+
+      <button onclick="switchPage('page-details')" id="nav-details" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">MAJLIS</span>
+      </button>
+
+      <button onclick="switchPage('page-comments')" id="nav-comments" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">UCAPAN</span>
+      </button>
+
+      <button onclick="toggleMuzik()" class="p-2 bg-amber-400 text-ashblue-950 rounded-full shadow-md font-bold">
+        <svg id="iconPlay" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+    </nav>
+
+    <!-- AUDIO PLAYER -->
+    <audio id="audioPemain" loop preload="auto">
+      <source src="akad.mp3" type="audio/mpeg">
+      <source src="./akad.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/k36u9b.mp3" type="audio/mpeg">
+    </audio>
+
+  </div>
+
+  <script>
+    let isOwner = false;
+    const pages = ['page-home', 'page-details', 'page-comments'];
+    let currentPageIndex = 0;
+    let isTransitioning = false;
+
+    // 1. Page Switcher
+    function switchPage(pageId) {
+      currentPageIndex = pages.indexOf(pageId);
+      
+      document.querySelectorAll('.page-section').forEach(page => {
+        page.classList.remove('active-page');
+      });
+
+      const activePage = document.getElementById(pageId);
+      activePage.classList.add('active-page');
+      activePage.scrollTop = 0;
+
+      const navIds = ['nav-home', 'nav-details', 'nav-comments'];
+      navIds.forEach(id => {
+        const btn = document.getElementById(id);
+        if (id === 'nav-' + pageId.replace('page-', '')) {
+          btn.classList.add('text-amber-300');
+          btn.classList.remove('text-ashblue-300');
+        } else {
+          btn.classList.remove('text-amber-300');
+          btn.classList.add('text-ashblue-300');
+        }
+      });
+    }
+
+    // 2. Automatic Scroll / Swipe Between Pages
+    let touchStartY = 0;
+    let touchEndY = 0;
+
+    function handleScrollSwipe(deltaY) {
+      if (isTransitioning) return;
+
+      const activePageEl = document.getElementById(pages[currentPageIndex]);
+      const isAtBottom = activePageEl.scrollHeight - activePageEl.scrollTop <= activePageEl.clientHeight + 10;
+      const isAtTop = activePageEl.scrollTop === 0;
+
+      if (deltaY > 30 && isAtBottom && currentPageIndex < pages.length - 1) {
+        isTransitioning = true;
+        switchPage(pages[currentPageIndex + 1]);
+        setTimeout(() => isTransitioning = false, 700);
+      } else if (deltaY < -30 && isAtTop && currentPageIndex > 0) {
+        isTransitioning = true;
+        switchPage(pages[currentPageIndex - 1]);
+        setTimeout(() => isTransitioning = false, 700);
+      }
+    }
+
+    window.addEventListener('wheel', (e) => {
+      handleScrollSwipe(e.deltaY);
+    }, { passive: true });
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      touchEndY = e.changedTouches[0].screenY;
+      const touchDiff = touchStartY - touchEndY;
+      handleScrollSwipe(touchDiff);
+    }, { passive: true });
+
+    // 3. URL Parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const namaTetamu = urlParams.get('to');
+    if (namaTetamu) {
+      document.getElementById('guestName').innerText = namaTetamu;
+      document.getElementById('rsvpNama').value = namaTetamu;
+      document.getElementById('komenNama').value = namaTetamu;
+    }
+
+    if (urlParams.get('admin') === '1234') {
+      isOwner = true;
+      document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
+    }
+
+    // 4. Robust Audio Trigger
+    const audio = document.getElementById('audioPemain');
+    function bukaKad() {
+      const cover = document.getElementById('coverModal');
+      cover.classList.add('envelope-open');
+      
+      audio.currentTime = 0;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(err => {
+          console.log("Autoplay was prevented, attempting mute fallback:", err);
+          audio.muted = true;
+          audio.play().then(() => {
+            setTimeout(() => { audio.muted = false; }, 300);
+          });
+        });
+      }
+    }
+
+    function toggleMuzik() {
+      const iconPlay = document.getElementById('iconPlay');
+      const iconPause = document.getElementById('iconPause');
+      
+      if (audio.paused) {
+        audio.play();
+        iconPlay.classList.add('hidden');
+        iconPause.classList.remove('hidden');
+      } else {
+        audio.pause();
+        iconPlay.classList.remove('hidden');
+        iconPause.classList.add('hidden');
+      }
+    }
+
+    // 5. Countdown (25 September 2026)
+    const tarikhMajlis = new Date("2026-09-25T11:00:00").getTime();
+    setInterval(() => {
+      const sekarang = new Date().getTime();
+      const bakiMasa = tarikhMajlis - sekarang;
+
+      if (bakiMasa > 0) {
+        document.getElementById('days').innerText = Math.floor(bakiMasa / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+        document.getElementById('hours').innerText = Math.floor((bakiMasa % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+        document.getElementById('mins').innerText = Math.floor((bakiMasa % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+        document.getElementById('secs').innerText = Math.floor((bakiMasa % (1000 * 60)) / 1000).toString().padStart(2, '0');
+      }
+    }, 1000);
+
+    // 6. RSVP WhatsApp - Phone: 0167502649 -> 60167502649
+    function hantarRSVP(e) {
+      e.preventDefault();
+      const nomborPengantin = "60167502649"; 
+      
+      const nama = document.getElementById('rsvpNama').value;
+      const status = document.getElementById('rsvpStatus').value;
+      const pax = document.getElementById('rsvpPax').value;
+
+      const mesej = `Salam, saya *${nama}* mengesahkan status *${status}* (${pax} Pax) untuk majlis perkahwinan Noorazlina & Rosli. Terima kasih.`;
+      window.location.href = `https://api.whatsapp.com/send?phone=${nomborPengantin}&text=${encodeURIComponent(mesej)}`;
+    }
+
+    // 7. Wishbook System
+    let senaraiUcapan = JSON.parse(localStorage.getItem('ucapan_noorazlina_rosli')) || [
+      { id: 1, nama: "Ahmad & Keluarga", ucapan: "Selamat pengantin baru Noorazlina & Rosli! Semoga kekal hingga ke jannah." },
+      { id: 2, nama: "Siti Aishah", ucapan: "Tahniah! Semoga dipermudahkan segala urusan majlis kelak." }
+    ];
+
+    function muatKomen() {
+      const bekas = document.getElementById('senaraiKomen');
+      const jumlah = document.getElementById('jumlahKomen');
+      bekas.innerHTML = '';
+      jumlah.innerText = senaraiUcapan.length;
+
+      senaraiUcapan.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'pt-2 flex justify-between items-start gap-2';
+        
+        let deleteBtnHtml = isOwner 
+          ? `<button onclick="padamKomen(${index})" class="text-[10px] text-red-500 font-semibold px-2 py-0.5 bg-red-50 rounded border border-red-200">Padam</button>` 
+          : '';
+
+        div.innerHTML = `
+          <div class="flex-1">
+            <p class="font-semibold text-slate-800">${escapeHtml(item.nama)}</p>
+            <p class="text-slate-600 text-[11px] mt-0.5 leading-relaxed">${escapeHtml(item.ucapan)}</p>
+          </div>
+          ${deleteBtnHtml}
+        `;
+        bekas.prepend(div);
+      });
+    }
+
+    function tambahKomen(e) {
+      e.preventDefault();
+      const nama = document.getElementById('komenNama').value;
+      const ucapan = document.getElementById('komenTeks').value;
+
+      if(nama && ucapan) {
+        senaraiUcapan.push({ id: Date.now(), nama, ucapan });
+        localStorage.setItem('ucapan_noorazlina_rosli', JSON.stringify(senaraiUcapan));
+        document.getElementById('komenTeks').value = '';
+        muatKomen();
+      }
+    }
+
+    function padamKomen(index) {
+      if (confirm("Adakah anda pasti nak padam ucapan ini?")) {
+        senaraiUcapan.splice(index, 1);
+        localStorage.setItem('ucapan_noorazlina_rosli', JSON.stringify(senaraiUcapan));
+        muatKomen();
+      }
+    }
+
+    function toggleOwnerMode() {
+      if (!isOwner) {
+        const pass = prompt("Masukkan kata laluan owner:");
+        if (pass === "1234") {
+          isOwner = true;
+          document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
+          alert("Mode Owner Diaktifkan!");
+        } else {
+          alert("Kata laluan salah!");
+        }
+      } else {
+        isOwner = false;
+        document.getElementById('btnOwner').innerText = 'Mode Owner: OFF';
+      }
+      muatKomen();
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    muatKomen();
+  </script>
+</body>
+</html>
