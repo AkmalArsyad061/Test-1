@@ -37,9 +37,9 @@
   <style>
     * { box-sizing: border-box; }
     html, body {
-      overflow-x: hidden;
-      scroll-behavior: smooth;
+      overflow: hidden;
       background-color: #0f1821;
+      height: 100%;
     }
     .font-script { font-family: 'Great Vibes', cursive; }
     .font-serif-classic { font-family: 'Cormorant Garamond', serif; }
@@ -53,15 +53,33 @@
       visibility: hidden;
       pointer-events: none;
     }
+
+    /* Multi-Page Fade Transition */
+    .page-section {
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+      transform: translateY(12px);
+      position: absolute;
+      inset: 0;
+      overflow-y: auto;
+      padding-bottom: 90px;
+    }
+
+    .page-section.active-page {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
   </style>
 </head>
-<body class="text-slate-800 font-sans-body flex justify-center min-h-screen">
+<body class="text-slate-800 font-sans-body flex justify-center items-center min-h-screen">
 
   <!-- Mobile Frame (Strict 420px max-width) -->
-  <div class="w-full max-w-[420px] bg-slate-50 min-h-screen shadow-2xl relative flex flex-col justify-between overflow-x-hidden border-x border-ashblue-800/40">
+  <div id="mainContainer" class="w-full max-w-[420px] bg-slate-50 h-screen sm:h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
     <!-- 1. COVER / ENVELOPE OVERLAY -->
-    <div id="coverModal" class="cover-overlay fixed inset-0 z-50 bg-ashblue-950 flex flex-col items-center justify-center p-6 text-center text-slate-100 max-w-[420px] mx-auto">
+    <div id="coverModal" class="cover-overlay fixed inset-0 z-50 bg-ashblue-950 flex flex-col items-center justify-center p-6 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl">
       <div class="border border-amber-300/40 p-8 rounded-2xl bg-ashblue-900 shadow-2xl w-full max-w-[340px] space-y-6">
         
         <div class="w-14 h-14 bg-ashblue-800 rounded-full flex items-center justify-center mx-auto border border-amber-300/40 text-amber-200">
@@ -87,11 +105,12 @@
       </div>
     </div>
 
-    <!-- MAIN INVITATION BODY -->
-    <main class="flex-1 pb-24 space-y-8 pt-8 px-5 w-full">
-
-      <!-- HERO / BRIDE & GROOM -->
-      <section class="text-center space-y-4">
+    <!-- ========================================== -->
+    <!-- PAGE 1: UTAMA / HOME                       -->
+    <!-- ========================================== -->
+    <div id="page-home" class="page-section active-page">
+      <div class="pt-8 px-5 text-center space-y-6">
+        
         <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Perkahwinan</p>
         
         <div class="py-6 px-4 space-y-2 rounded-2xl bg-white border border-ashblue-200 shadow-sm">
@@ -104,20 +123,14 @@
         <div class="inline-block bg-ashblue-900 text-amber-200 px-6 py-2 rounded-full text-xs tracking-widest font-semibold shadow-sm">
           JUMAAT | 25 SEPTEMBER 2026
         </div>
-      </section>
 
-      <!-- AYAT AL-QURAN -->
-      <section>
         <div class="bg-white p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center">
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
             "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
           </p>
           <p class="text-[10px] text-ashblue-800 tracking-wider font-bold uppercase">— Surah Ar-Rum: 21</p>
         </div>
-      </section>
 
-      <!-- COUNTDOWN TIMER -->
-      <section>
         <div class="bg-ashblue-900 text-white p-4 rounded-2xl border border-amber-300/30 shadow-sm text-center">
           <p class="text-[10px] text-amber-300 tracking-widest uppercase font-semibold mb-3">Menghitung Hari</p>
           <div class="grid grid-cols-4 gap-2 text-center">
@@ -127,10 +140,20 @@
             <div class="bg-ashblue-800 p-2 rounded-xl border border-ashblue-700"><span id="secs" class="block text-xl font-bold text-amber-300">00</span><span class="text-[9px] text-ashblue-200">Saat</span></div>
           </div>
         </div>
-      </section>
 
-      <!-- ATUR CARA & LOKASI -->
-      <section class="text-center space-y-4">
+        <div class="pt-2 text-ashblue-600 flex flex-col items-center gap-1 opacity-70">
+          <span class="text-[10px] font-semibold tracking-widest uppercase">Gunakan Menu Di Bawah Untuk Maklumat Lanjut</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 2: MAJLIS & RSVP                      -->
+    <!-- ========================================== -->
+    <div id="page-details" class="page-section">
+      <div class="pt-8 px-5 text-center space-y-6">
+        
         <div class="space-y-1">
           <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Atur Cara & Lokasi</h2>
           <h1 class="font-script text-5xl text-ashblue-900">Maklumat Majlis</h1>
@@ -160,10 +183,7 @@
             </a>
           </div>
         </div>
-      </section>
 
-      <!-- BORANG RSVP -->
-      <section>
         <div class="bg-white p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4">
           <div class="text-center">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
@@ -194,10 +214,16 @@
             </button>
           </form>
         </div>
-      </section>
 
-      <!-- RUANGAN UCAPAN & DOA -->
-      <section class="space-y-4">
+      </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PAGE 3: UCAPAN & DOA (WISHBOOK)            -->
+    <!-- ========================================== -->
+    <div id="page-comments" class="page-section">
+      <div class="pt-8 px-5 space-y-6">
+        
         <div class="text-center space-y-1">
           <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Titipan Doa</h2>
           <h1 class="font-script text-5xl text-ashblue-900">Ucapan Tetamu</h1>
@@ -225,17 +251,34 @@
           <div id="senaraiKomen" class="space-y-3 max-h-72 overflow-y-auto pr-1 text-xs divide-y divide-ashblue-100">
           </div>
         </div>
-      </section>
 
-    </main>
-
-    <!-- FLOATING FIXED AUDIO TOGGLE (STRICTLY CONFINED) -->
-    <div class="fixed bottom-6 right-6 z-40">
-      <button id="musicToggleBtn" onclick="toggleMuzik()" class="p-3 bg-amber-400 hover:bg-amber-300 text-ashblue-950 rounded-full shadow-xl border border-amber-200 flex items-center justify-center transition active:scale-95">
-        <svg id="iconPlay" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg id="iconPause" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-      </button>
+      </div>
     </div>
+
+    <!-- ========================================== -->
+    <!-- BOTTOM NAVIGATION BAR                      -->
+    <!-- ========================================== -->
+    <nav class="absolute bottom-0 inset-x-0 bg-ashblue-900/95 backdrop-blur-md border-t border-amber-300/20 px-6 py-2.5 z-40 flex justify-around items-center text-white">
+      <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-0.5 text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">UTAMA</span>
+      </button>
+
+      <button onclick="switchPage('page-details')" id="nav-details" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">MAJLIS</span>
+      </button>
+
+      <button onclick="switchPage('page-comments')" id="nav-comments" class="flex flex-col items-center gap-0.5 text-ashblue-300 hover:text-amber-300 transition">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+        <span class="text-[9px] font-medium tracking-wider">UCAPAN</span>
+      </button>
+
+      <button id="musicToggleBtn" onclick="toggleMuzik()" class="p-2 bg-amber-400 hover:bg-amber-300 text-ashblue-950 rounded-full shadow-md font-bold transition">
+        <svg id="iconPlay" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      </button>
+    </nav>
 
   </div>
 
@@ -247,9 +290,32 @@
     const audio = new Audio(basePath + 'akad.mp3');
     audio.loop = true;
     audio.preload = 'auto';
-    audio.volume = 0.10; // Set to quiet background level (10%)
+    audio.volume = 0.10;
 
-    // URL Parameters
+    // 1. Page Switcher Logic
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-section').forEach(page => {
+        page.classList.remove('active-page');
+      });
+
+      const activePage = document.getElementById(pageId);
+      activePage.classList.add('active-page');
+      activePage.scrollTop = 0;
+
+      const navIds = ['nav-home', 'nav-details', 'nav-comments'];
+      navIds.forEach(id => {
+        const btn = document.getElementById(id);
+        if (id === 'nav-' + pageId.replace('page-', '')) {
+          btn.classList.add('text-amber-300');
+          btn.classList.remove('text-ashblue-300');
+        } else {
+          btn.classList.remove('text-amber-300');
+          btn.classList.add('text-ashblue-300');
+        }
+      });
+    }
+
+    // 2. URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
     const namaTetamu = urlParams.get('to');
     if (namaTetamu) {
@@ -263,6 +329,7 @@
       document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
     }
 
+    // 3. Open Envelope & Trigger Music
     function bukaKad() {
       const cover = document.getElementById('coverModal');
       cover.classList.add('cover-hidden');
@@ -301,7 +368,7 @@
       }
     }
 
-    // Countdown (25 September 2026)
+    // 4. Countdown (25 September 2026)
     const tarikhMajlis = new Date("2026-09-25T11:00:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -315,7 +382,7 @@
       }
     }, 1000);
 
-    // WhatsApp RSVP — Number: 60167502649
+    // 5. WhatsApp RSVP — Number: 60167502649
     function hantarRSVP(e) {
       e.preventDefault();
       const nomborPengantin = "60167502649"; 
@@ -328,7 +395,7 @@
       window.location.href = `https://api.whatsapp.com/send?phone=${nomborPengantin}&text=${encodeURIComponent(mesej)}`;
     }
 
-    // Wishbook & Comment System
+    // 6. Wishbook & Comment System
     let senaraiUcapan = JSON.parse(localStorage.getItem('ucapan_noorazlina_rosli')) || [
       { id: 1, nama: "Ahmad & Keluarga", ucapan: "Selamat pengantin baru Noorazlina & Rosli! Semoga kekal hingga ke jannah." },
       { id: 2, nama: "Siti Aishah", ucapan: "Tahniah! Semoga dipermudahkan segala urusan majlis kelak." }
