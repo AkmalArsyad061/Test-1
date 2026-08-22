@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+
+     <!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Walimatul Urus — Noorazlina & Rosli</title>
+  <title>Majlis Kesyukuran — Noorazlina & Rosli</title>
   
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -67,7 +68,6 @@
       pointer-events: none;
     }
 
-    /* Multi-Page Transition */
     .page-section {
       opacity: 0;
       visibility: hidden;
@@ -89,7 +89,6 @@
       transform: translateY(0);
     }
 
-    /* Aesthetic Islamic / Botanical Damask BG Pattern */
     .bg-damask {
       background-color: #f8fafc;
       background-image: radial-gradient(#759cb5 0.8px, transparent 0.8px), radial-gradient(#d4af37 0.6px, #f8fafc 0.6px);
@@ -104,17 +103,17 @@
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- Mobile Frame Container -->
+  <!-- Container Utama Kad Jemputan -->
   <div id="mainContainer" class="w-full max-w-[420px] bg-damask h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
     <!-- ========================================== -->
-    <!-- 1. COVER / ENVELOPE OVERLAY (LUXURY GOLD) -->
+    <!-- 1. COVER / ENVELOPE OVERLAY               -->
     <!-- ========================================== -->
     <div id="coverModal" class="cover-overlay fixed inset-0 z-50 bg-ashblue-950 flex flex-col items-center justify-center p-6 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl">
       
       <div class="border-2 border-champagne-400/40 p-8 rounded-3xl bg-ashblue-900/95 shadow-[0_0_30px_rgba(212,175,55,0.15)] w-full max-w-[340px] space-y-6 relative overflow-hidden">
         
-        <!-- Luxury Corner Floral Vectors -->
+        <!-- Hiasan Bucu Bunga Emas -->
         <svg class="absolute top-2 left-2 w-12 h-12 text-champagne-400/40 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
           <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
         </svg>
@@ -128,13 +127,12 @@
           <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
         </svg>
 
-        <!-- Center Envelope Wax Seal Look -->
         <div class="w-14 h-14 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md">
           <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
 
         <div>
-          <p class="text-champagne-400 text-xs tracking-[0.3em] uppercase font-semibold">Walimatul Urus</p>
+          <p class="text-champagne-400 text-xs tracking-[0.3em] uppercase font-semibold">Majlis Kesyukuran</p>
           <div class="flex items-center justify-center gap-2 my-3">
             <div class="h-[1px] w-10 bg-champagne-400/40"></div>
             <span class="text-champagne-400 text-xs">❦</span>
@@ -157,25 +155,18 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- PAGE 1: UTAMA / HOME (LUXURY FLORAL)       -->
+    <!-- PAGE 1: UTAMA / HOME                       -->
     <!-- ========================================== -->
     <div id="page-home" class="page-section active-page">
       <div class="pt-8 px-5 text-center space-y-6">
         
-        <!-- Bismillah Header -->
         <div class="space-y-2">
           <p class="font-arabic text-xl text-ashblue-800 tracking-wider">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
-          <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Perkahwinan</p>
+          <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card with Ornaments -->
         <div class="py-8 px-4 space-y-3 rounded-3xl bg-white/90 backdrop-blur-sm border-2 border-champagne-400/40 shadow-md relative overflow-hidden">
-          
-          <!-- Subtle Corner Leaf Accents -->
-          <svg class="absolute top-2 left-2 w-8 h-8 text-ashblue-300/40" viewBox="0 0 24 24" fill="currentColor"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
-          <svg class="absolute bottom-2 right-2 w-8 h-8 text-ashblue-300/40 transform rotate-180" viewBox="0 0 24 24" fill="currentColor"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/></svg>
-
-          <p class="font-serif-classic text-champagne-600 text-xs tracking-[0.2em] uppercase font-semibold">Walimatul Urus</p>
+          <p class="font-serif-classic text-champagne-600 text-xs tracking-[0.2em] uppercase font-semibold">Tuan Rumah & Keluarga</p>
           <h1 class="font-script text-6xl text-ashblue-950 pt-1 leading-none drop-shadow-sm">Noorazlina</h1>
           <div class="flex items-center justify-center gap-3 my-1">
             <div class="h-[1px] w-12 bg-champagne-400"></div>
@@ -189,15 +180,13 @@
           JUMAAT | 25 SEPTEMBER 2026
         </div>
 
-        <!-- Quranic Verse Box -->
         <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative">
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
-            "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
+            "Dan jika kamu menghitung nikmat Allah, nescaya kamu tidak akan mampu mengiranya. Sesungguhnya Allah benar-benar Maha Pengampun, Maha Penyayang."
           </p>
-          <p class="text-[10px] text-ashblue-800 tracking-wider font-bold uppercase">— Surah Ar-Rum: 21</p>
+          <p class="text-[10px] text-ashblue-800 tracking-wider font-bold uppercase">— Surah An-Nahl: 18</p>
         </div>
 
-        <!-- Countdown Timer -->
         <div class="bg-ashblue-900 text-white p-5 rounded-2xl border border-champagne-400/40 shadow-md text-center">
           <p class="text-[10px] text-champagne-400 tracking-widest uppercase font-semibold mb-3">Menghitung Hari</p>
           <div class="grid grid-cols-4 gap-2 text-center">
@@ -212,7 +201,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- PAGE 2: MAJLIS & RSVP                      -->
+    <!-- PAGE 2: MAJLIS & RSVP (GOOGLE SHEETS)      -->
     <!-- ========================================== -->
     <div id="page-details" class="page-section">
       <div class="pt-8 px-5 text-center space-y-6">
@@ -251,13 +240,14 @@
           </div>
         </div>
 
+        <!-- Borang RSVP Terus Ke Google Sheets -->
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left">
           <div class="text-center">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
-            <p class="text-[11px] text-slate-500 mt-0.5">Sila sahkan kehadiran anda melalui WhatsApp</p>
+            <p class="text-[11px] text-slate-500 mt-0.5">Sila lengkapkan maklumat kehadiran anda</p>
           </div>
 
-          <form onsubmit="hantarRSVP(event)" class="space-y-3 text-xs">
+          <form id="rsvpForm" onsubmit="hantarRSVPSheet(event)" class="space-y-3 text-xs">
             <div>
               <label class="block text-slate-600 mb-1 font-medium">Nama Penuh</label>
               <input type="text" id="rsvpNama" required placeholder="Masukkan nama anda" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
@@ -276,9 +266,10 @@
               <input type="number" id="rsvpPax" min="1" max="50" value="1" required placeholder="Contoh: 1, 2, 5" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
             </div>
 
-            <button type="submit" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2 pt-3">
-              Hantar Ke WhatsApp
+            <button type="submit" id="btnHantarRSVP" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2 pt-3">
+              <span>Sahkan Kehadiran</span>
             </button>
+            <p id="rsvpStatusMesej" class="text-center text-xs font-semibold pt-1 hidden"></p>
           </form>
         </div>
 
@@ -323,7 +314,7 @@
     </div>
 
     <!-- ======================================================= -->
-    <!-- BOTTOM NAVIGATION (FIXED & FULLY OPTIMIZED FOR MOBILE)  -->
+    <!-- BOTTOM NAVIGATION BAR                                   -->
     <!-- ======================================================= -->
     <nav class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-ashblue-900/95 backdrop-blur-md border-t border-champagne-400/30 px-6 pt-2.5 safe-bottom z-40 flex justify-around items-center text-white shadow-[0_-4px_25px_rgba(0,0,0,0.3)]">
       <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-1 text-champagne-400 transition py-1">
@@ -350,16 +341,18 @@
   </div>
 
   <script>
+    // URL Google Apps Script yang telah dikemaskini
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd6TGEs1Ipb6DVppZZu-WtkvVTFjK8VLEC79IDjOoDpkdnENIrf8Uj5LT_JtwiCut9/exec";
+
     let isOwner = false;
 
-    // Audio Object with soft background volume (10%)
+    // Tetapan audio latar (10% volume)
     const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
     const audio = new Audio(basePath + 'akad.mp3');
     audio.loop = true;
     audio.preload = 'auto';
     audio.volume = 0.10;
 
-    // 1. Page Switcher Logic
     function switchPage(pageId) {
       document.querySelectorAll('.page-section').forEach(page => {
         page.classList.remove('active-page');
@@ -382,7 +375,6 @@
       });
     }
 
-    // 2. URL Parameters
     const urlParams = new URLSearchParams(window.location.search);
     const namaTetamu = urlParams.get('to');
     if (namaTetamu) {
@@ -396,7 +388,6 @@
       document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
     }
 
-    // 3. Open Envelope & Trigger Music
     function bukaKad() {
       const cover = document.getElementById('coverModal');
       cover.classList.add('cover-hidden');
@@ -435,7 +426,7 @@
       }
     }
 
-    // 4. Countdown (25 September 2026)
+    // Countdown Timer (25 September 2026)
     const tarikhMajlis = new Date("2026-09-25T11:00:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -449,23 +440,51 @@
       }
     }, 1000);
 
-    // 5. WhatsApp RSVP — Number: 60167502649
-    function hantarRSVP(e) {
+    // Hantar data RSVP terus ke Google Sheets
+    function hantarRSVPSheet(e) {
       e.preventDefault();
-      const nomborPengantin = "60167502649"; 
       
+      const btn = document.getElementById('btnHantarRSVP');
+      const mesejEl = document.getElementById('rsvpStatusMesej');
       const nama = document.getElementById('rsvpNama').value;
       const status = document.getElementById('rsvpStatus').value;
       const pax = document.getElementById('rsvpPax').value || 1;
 
-      const mesej = `Salam, saya *${nama}* mengesahkan status *${status}* (${pax} Pax) untuk majlis perkahwinan Noorazlina & Rosli. Terima kasih.`;
-      window.location.href = `https://api.whatsapp.com/send?phone=${nomborPengantin}&text=${encodeURIComponent(mesej)}`;
+      btn.disabled = true;
+      btn.innerText = "Sedang Dihantar...";
+      mesejEl.classList.add('hidden');
+
+      const payload = {
+        nama: nama,
+        status: status,
+        pax: pax
+      };
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
+        btn.innerText = "Telah Disahkan ✓";
+        btn.className = "w-full py-3 bg-emerald-700 text-white font-semibold rounded-xl shadow-md";
+        mesejEl.innerText = "Terima kasih! Pengesahan kehadiran anda telah direkodkan.";
+        mesejEl.className = "text-center text-xs font-semibold text-emerald-700 pt-1 block";
+      })
+      .catch((err) => {
+        console.error(err);
+        btn.disabled = false;
+        btn.innerText = "Cuba Lagi";
+        mesejEl.innerText = "Gagal merekod kehadiran. Sila cuba sebentar lagi.";
+        mesejEl.className = "text-center text-xs font-semibold text-red-600 pt-1 block";
+      });
     }
 
-    // 6. Wishbook & Comment System
-    let senaraiUcapan = JSON.parse(localStorage.getItem('ucapan_noorazlina_rosli')) || [
-      { id: 1, nama: "Ahmad & Keluarga", ucapan: "Selamat pengantin baru Noorazlina & Rosli! Semoga kekal hingga ke jannah." },
-      { id: 2, nama: "Siti Aishah", ucapan: "Tahniah! Semoga dipermudahkan segala urusan majlis kelak." }
+    // Wishbook & Comment Storage
+    let senaraiUcapan = JSON.parse(localStorage.getItem('ucapan_kesyukuran_noorazlina_rosli')) || [
+      { id: 1, nama: "Ahmad & Keluarga", ucapan: "Tahniah dan selamat mengadakan majlis kesyukuran. Semoga diberkati selalu." },
+      { id: 2, nama: "Siti Aishah", ucapan: "Semoga majlis berjalan dengan lancar dan penuh keberkatan." }
     ];
 
     function muatKomen() {
@@ -500,7 +519,7 @@
 
       if(nama && ucapan) {
         senaraiUcapan.push({ id: Date.now(), nama, ucapan });
-        localStorage.setItem('ucapan_noorazlina_rosli', JSON.stringify(senaraiUcapan));
+        localStorage.setItem('ucapan_kesyukuran_noorazlina_rosli', JSON.stringify(senaraiUcapan));
         document.getElementById('komenTeks').value = '';
         muatKomen();
       }
@@ -509,7 +528,7 @@
     function padamKomen(index) {
       if (confirm("Adakah anda pasti nak padam ucapan ini?")) {
         senaraiUcapan.splice(index, 1);
-        localStorage.setItem('ucapan_noorazlina_rosli', JSON.stringify(senaraiUcapan));
+        localStorage.setItem('ucapan_kesyukuran_noorazlina_rosli', JSON.stringify(senaraiUcapan));
         muatKomen();
       }
     }
@@ -538,4 +557,5 @@
     muatKomen();
   </script>
 </body>
+</html>
 </html>
