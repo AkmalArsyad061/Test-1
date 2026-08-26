@@ -1,10 +1,9 @@
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Majlis Kesyukuran — Noorazlina & Rosli</title>
+  <title>Majlis Kesyukuran — Rosli & Noorazlina</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -59,8 +58,31 @@
     .font-sans-body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-arabic { font-family: 'Amiri', serif; }
     
+    /* Garden Gate 3D Animation */
+    .gate-perspective {
+      perspective: 1200px;
+    }
+    .gate-door-left {
+      transform-origin: left center;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    }
+    .gate-door-right {
+      transform-origin: right center;
+      transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+    }
+    .gate-open-left {
+      transform: rotateY(-110deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .gate-open-right {
+      transform: rotateY(110deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .cover-overlay {
-      transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.5s ease;
+      transition: opacity 0.6s ease 0.6s, visibility 0.6s ease 0.6s;
     }
     .cover-hidden {
       opacity: 0;
@@ -107,51 +129,70 @@
   <div id="mainContainer" class="w-full max-w-[420px] bg-damask h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
     <!-- ========================================== -->
-    <!-- 1. COVER / ENVELOPE OVERLAY               -->
+    <!-- 1. GARDEN GATE COVER OVERLAY               -->
     <!-- ========================================== -->
-    <div id="coverModal" class="cover-overlay fixed inset-0 z-50 bg-ashblue-950 flex flex-col items-center justify-center p-6 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl">
+    <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
       
-      <div class="border-2 border-champagne-400/40 p-8 rounded-3xl bg-ashblue-900/95 shadow-[0_0_30px_rgba(212,175,55,0.15)] w-full max-w-[340px] space-y-6 relative overflow-hidden">
-        
-        <!-- Hiasan Bucu Bunga Emas -->
-        <svg class="absolute top-2 left-2 w-12 h-12 text-champagne-400/40 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
+      <!-- Pintu Gerbang Kiri -->
+      <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
+        <!-- Botanical Lattice SVG (Kiri) -->
+        <svg class="w-full h-40 text-champagne-400/20" viewBox="0 0 100 150" fill="currentColor">
+          <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z M10,20 Q50,40 90,20 L90,130 Q50,110 10,130 Z"/>
+          <path d="M50,10 Q60,50 80,60 Q50,70 50,140 Q40,90 20,70 Q40,60 50,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
         </svg>
-        <svg class="absolute top-2 right-2 w-12 h-12 text-champagne-400/40 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
+        <div class="h-16 w-8 rounded-r-full border-r-2 border-champagne-400/60 self-end mr-0 bg-ashblue-800/40 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
+        </div>
+        <svg class="w-full h-32 text-champagne-400/20 transform rotate-180" viewBox="0 0 100 150" fill="currentColor">
+          <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z"/>
         </svg>
-        <svg class="absolute bottom-2 left-2 w-12 h-12 text-champagne-400/40 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
-        </svg>
-        <svg class="absolute bottom-2 right-2 w-12 h-12 text-champagne-400/40 transform rotate-180 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M0,0 L40,0 C30,15 15,30 0,40 Z M10,10 Q35,10 45,30 Q30,45 10,10 Z"/>
-        </svg>
+      </div>
 
-        <div class="w-14 h-14 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md">
-          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+      <!-- Pintu Gerbang Kanan -->
+      <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
+        <!-- Botanical Lattice SVG (Kanan) -->
+        <svg class="w-full h-40 text-champagne-400/20 transform scale-x-[-1]" viewBox="0 0 100 150" fill="currentColor">
+          <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z M10,20 Q50,40 90,20 L90,130 Q50,110 10,130 Z"/>
+          <path d="M50,10 Q60,50 80,60 Q50,70 50,140 Q40,90 20,70 Q40,60 50,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <div class="h-16 w-8 rounded-l-full border-l-2 border-champagne-400/60 self-start ml-0 bg-ashblue-800/40 flex items-center justify-center">
+          <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
+        </div>
+        <svg class="w-full h-32 text-champagne-400/20 transform scale-x-[-1] rotate-180" viewBox="0 0 100 150" fill="currentColor">
+          <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z"/>
+        </svg>
+      </div>
+
+      <!-- Kad Tengah (Center Crest) -->
+      <div id="gateCenterCard" class="relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500">
+        
+        <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
 
         <div>
           <p class="text-champagne-400 text-xs tracking-[0.3em] uppercase font-semibold">Majlis Kesyukuran</p>
-          <div class="flex items-center justify-center gap-2 my-3">
+          <div class="flex items-center justify-center gap-2 my-2.5">
             <div class="h-[1px] w-10 bg-champagne-400/40"></div>
             <span class="text-champagne-400 text-xs">❦</span>
             <div class="h-[1px] w-10 bg-champagne-400/40"></div>
           </div>
-          <h1 class="font-script text-5xl text-white pt-1 leading-tight drop-shadow">Noorazlina</h1>
+          <!-- Rosli Atas, Noorazlina Bawah -->
+          <h1 class="font-script text-5xl text-white pt-1 leading-tight drop-shadow">Rosli</h1>
           <p class="text-sm font-serif-classic italic text-champagne-300 my-0.5">&</p>
-          <h1 class="font-script text-5xl text-white leading-tight drop-shadow">Rosli</h1>
+          <h1 class="font-script text-5xl text-white leading-tight drop-shadow">Noorazlina</h1>
         </div>
         
-        <div class="py-3 px-4 border border-champagne-400/30 bg-ashblue-950/60 rounded-xl">
+        <div class="py-2.5 px-4 border border-champagne-400/30 bg-ashblue-900/80 rounded-xl">
           <p class="text-[10px] text-ashblue-300 uppercase tracking-widest mb-0.5">Kepada / Dear Guest:</p>
           <p id="guestName" class="text-base font-semibold text-champagne-300">Tetamu Jemputan</p>
         </div>
 
-        <button onclick="bukaKad()" class="w-full py-3.5 bg-gradient-to-r from-ashblue-600 to-ashblue-500 hover:from-ashblue-500 hover:to-ashblue-400 text-white font-semibold rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-champagne-400/40 active:scale-95">
+        <button onclick="bukaKad()" class="w-full py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-400 hover:from-champagne-400 hover:to-champagne-300 text-ashblue-950 font-bold rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-champagne-300 active:scale-95">
           <span>Buka Kad Jemputan</span>
         </button>
       </div>
+
     </div>
 
     <!-- ========================================== -->
@@ -165,15 +206,17 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
+        <!-- Main Couple Card -->
         <div class="py-8 px-4 space-y-3 rounded-3xl bg-white/90 backdrop-blur-sm border-2 border-champagne-400/40 shadow-md relative overflow-hidden">
           <p class="font-serif-classic text-champagne-600 text-xs tracking-[0.2em] uppercase font-semibold">Tuan Rumah & Keluarga</p>
-          <h1 class="font-script text-6xl text-ashblue-950 pt-1 leading-none drop-shadow-sm">Noorazlina</h1>
+          <!-- Rosli Atas, Noorazlina Bawah -->
+          <h1 class="font-script text-6xl text-ashblue-950 pt-1 leading-none drop-shadow-sm">Rosli</h1>
           <div class="flex items-center justify-center gap-3 my-1">
             <div class="h-[1px] w-12 bg-champagne-400"></div>
             <span class="font-serif-classic italic text-champagne-600 text-xl font-bold">&</span>
             <div class="h-[1px] w-12 bg-champagne-400"></div>
           </div>
-          <h1 class="font-script text-6xl text-ashblue-950 pb-1 leading-none drop-shadow-sm">Rosli</h1>
+          <h1 class="font-script text-6xl text-ashblue-950 pb-1 leading-none drop-shadow-sm">Noorazlina</h1>
         </div>
 
         <div class="inline-block bg-ashblue-900 text-champagne-300 px-6 py-2 rounded-full text-xs tracking-widest font-semibold shadow-md border border-champagne-400/30">
@@ -201,7 +244,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- PAGE 2: MAJLIS & RSVP (GOOGLE SHEETS)      -->
+    <!-- PAGE 2: MAJLIS & RSVP                      -->
     <!-- ========================================== -->
     <div id="page-details" class="page-section">
       <div class="pt-8 px-5 text-center space-y-6">
@@ -240,7 +283,7 @@
           </div>
         </div>
 
-        <!-- Borang RSVP Terus Ke Google Sheets -->
+        <!-- Borang RSVP -->
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left">
           <div class="text-center">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
@@ -277,7 +320,7 @@
     </div>
 
     <!-- ========================================== -->
-    <!-- PAGE 3: UCAPAN & DOA (WISHBOOK)            -->
+    <!-- PAGE 3: UCAPAN & DOA (LIVE DATABASE)       -->
     <!-- ========================================== -->
     <div id="page-comments" class="page-section">
       <div class="pt-8 px-5 space-y-6">
@@ -288,14 +331,14 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4">
-          <form onsubmit="tambahKomen(event)" class="space-y-3 text-xs">
+          <form onsubmit="tambahKomenLive(event)" class="space-y-3 text-xs">
             <div>
               <input type="text" id="komenNama" required placeholder="Nama Anda" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
             </div>
             <div>
               <textarea id="komenTeks" required rows="3" placeholder="Tuliskan ucapan & doa anda di sini..." class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50"></textarea>
             </div>
-            <button type="submit" class="w-full py-3 bg-ashblue-700 hover:bg-ashblue-800 text-white font-semibold rounded-xl shadow-md transition">
+            <button type="submit" id="btnKirimKomen" class="w-full py-3 bg-ashblue-700 hover:bg-ashblue-800 text-white font-semibold rounded-xl shadow-md transition">
               Kirim Ucapan
             </button>
           </form>
@@ -307,6 +350,7 @@
             <button onclick="toggleOwnerMode()" id="btnOwner" class="text-[10px] text-ashblue-600 underline font-medium">Mode Owner: OFF</button>
           </div>
           <div id="senaraiKomen" class="space-y-3 max-h-60 overflow-y-auto pr-1 text-xs divide-y divide-ashblue-100">
+            <p class="text-center text-slate-400 py-3">Memuatkan ucapan...</p>
           </div>
         </div>
 
@@ -341,17 +385,23 @@
   </div>
 
   <script>
-    // URL Google Apps Script yang telah dikemaskini
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxd6TGEs1Ipb6DVppZZu-WtkvVTFjK8VLEC79IDjOoDpkdnENIrf8Uj5LT_JtwiCut9/exec";
 
     let isOwner = false;
+    let liveComments = [];
 
-    // Tetapan audio latar (10% volume)
+    // Menggunakan lagu.mp3 (fallback ke akad.mp3 jika fail belum ditukar)
     const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-    const audio = new Audio(basePath + 'akad.mp3');
+    const audio = new Audio(basePath + 'lagu.mp3');
     audio.loop = true;
     audio.preload = 'auto';
     audio.volume = 0.10;
+
+    // Fallback sekiranya nama fail masih akad.mp3
+    audio.onerror = () => {
+      audio.src = basePath + 'akad.mp3';
+      audio.load();
+    };
 
     function switchPage(pageId) {
       document.querySelectorAll('.page-section').forEach(page => {
@@ -373,6 +423,10 @@
           btn.classList.add('text-ashblue-300');
         }
       });
+      
+      if (pageId === 'page-comments') {
+        muatKomenLive();
+      }
     }
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -388,8 +442,22 @@
       document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
     }
 
+    // Animasi Pintu Gerbang Bunga & Mainkan Audio
     function bukaKad() {
+      const gateLeft = document.getElementById('gateLeft');
+      const gateRight = document.getElementById('gateRight');
+      const gateCard = document.getElementById('gateCenterCard');
       const cover = document.getElementById('coverModal');
+
+      // 1. Kad tengah mengecil dan fade out
+      gateCard.style.opacity = '0';
+      gateCard.style.transform = 'scale(0.8)';
+
+      // 2. Pintu gerbang terbelah dan berayun ke luar
+      gateLeft.classList.add('gate-open-left');
+      gateRight.classList.add('gate-open-right');
+
+      // 3. Keseluruhan lapisan sampul hilang
       cover.classList.add('cover-hidden');
       
       audio.volume = 0.10;
@@ -399,6 +467,7 @@
         console.warn("Autoplay blocked:", err);
         updateIcons(false);
       });
+      muatKomenLive();
     }
 
     function toggleMuzik() {
@@ -426,7 +495,7 @@
       }
     }
 
-    // Countdown Timer (25 September 2026)
+    // Countdown Timer
     const tarikhMajlis = new Date("2026-09-25T11:00:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -440,7 +509,7 @@
       }
     }, 1000);
 
-    // Hantar data RSVP terus ke Google Sheets
+    // RSVP Google Sheets
     function hantarRSVPSheet(e) {
       e.preventDefault();
       
@@ -455,6 +524,7 @@
       mesejEl.classList.add('hidden');
 
       const payload = {
+        action: "rsvp",
         nama: nama,
         status: status,
         pax: pax
@@ -473,7 +543,6 @@
         mesejEl.className = "text-center text-xs font-semibold text-emerald-700 pt-1 block";
       })
       .catch((err) => {
-        console.error(err);
         btn.disabled = false;
         btn.innerText = "Cuba Lagi";
         mesejEl.innerText = "Gagal merekod kehadiran. Sila cuba sebentar lagi.";
@@ -481,24 +550,36 @@
       });
     }
 
-    // Wishbook & Comment Storage
-    let senaraiUcapan = JSON.parse(localStorage.getItem('ucapan_kesyukuran_noorazlina_rosli')) || [
-      { id: 1, nama: "Ahmad & Keluarga", ucapan: "Tahniah dan selamat mengadakan majlis kesyukuran. Semoga diberkati selalu." },
-      { id: 2, nama: "Siti Aishah", ucapan: "Semoga majlis berjalan dengan lancar dan penuh keberkatan." }
-    ];
+    // LIVE UCAPAN (GOOGLE SHEETS)
+    function muatKomenLive() {
+      fetch(GOOGLE_SCRIPT_URL)
+        .then(res => res.json())
+        .then(data => {
+          liveComments = data || [];
+          renderKomen();
+        })
+        .catch(err => {
+          console.warn("Gagal memuatkan ucapan:", err);
+        });
+    }
 
-    function muatKomen() {
+    function renderKomen() {
       const bekas = document.getElementById('senaraiKomen');
       const jumlah = document.getElementById('jumlahKomen');
       bekas.innerHTML = '';
-      jumlah.innerText = senaraiUcapan.length;
+      jumlah.innerText = liveComments.length;
 
-      senaraiUcapan.forEach((item, index) => {
+      if (liveComments.length === 0) {
+        bekas.innerHTML = '<p class="text-center text-slate-400 py-3">Jadilah yang pertama meninggalkan ucapan!</p>';
+        return;
+      }
+
+      liveComments.forEach((item) => {
         const div = document.createElement('div');
         div.className = 'pt-2 flex justify-between items-start gap-2';
         
         let deleteBtnHtml = isOwner 
-          ? `<button onclick="padamKomen(${index})" class="text-[10px] text-red-500 font-semibold px-2 py-0.5 bg-red-50 rounded border border-red-200">Padam</button>` 
+          ? `<button onclick="padamKomenLive(${item.row})" class="text-[10px] text-red-500 font-semibold px-2 py-0.5 bg-red-50 rounded border border-red-200">Padam</button>` 
           : '';
 
         div.innerHTML = `
@@ -508,28 +589,61 @@
           </div>
           ${deleteBtnHtml}
         `;
-        bekas.prepend(div);
+        bekas.appendChild(div);
       });
     }
 
-    function tambahKomen(e) {
+    function tambahKomenLive(e) {
       e.preventDefault();
+      const btn = document.getElementById('btnKirimKomen');
       const nama = document.getElementById('komenNama').value;
       const ucapan = document.getElementById('komenTeks').value;
 
-      if(nama && ucapan) {
-        senaraiUcapan.push({ id: Date.now(), nama, ucapan });
-        localStorage.setItem('ucapan_kesyukuran_noorazlina_rosli', JSON.stringify(senaraiUcapan));
+      if (!nama || !ucapan) return;
+
+      btn.disabled = true;
+      btn.innerText = "Menghantar...";
+
+      const payload = {
+        action: "tambah_ucapan",
+        nama: nama,
+        ucapan: ucapan
+      };
+
+      fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      })
+      .then(() => {
         document.getElementById('komenTeks').value = '';
-        muatKomen();
-      }
+        btn.disabled = false;
+        btn.innerText = "Kirim Ucapan";
+        setTimeout(muatKomenLive, 1200);
+      })
+      .catch(err => {
+        btn.disabled = false;
+        btn.innerText = "Kirim Ucapan";
+        alert("Gagal menghantar ucapan.");
+      });
     }
 
-    function padamKomen(index) {
+    function padamKomenLive(rowNum) {
       if (confirm("Adakah anda pasti nak padam ucapan ini?")) {
-        senaraiUcapan.splice(index, 1);
-        localStorage.setItem('ucapan_kesyukuran_noorazlina_rosli', JSON.stringify(senaraiUcapan));
-        muatKomen();
+        const payload = {
+          action: "padam_ucapan",
+          row: rowNum
+        };
+
+        fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).then(() => {
+          setTimeout(muatKomenLive, 1200);
+        });
       }
     }
 
@@ -547,15 +661,14 @@
         isOwner = false;
         document.getElementById('btnOwner').innerText = 'Mode Owner: OFF';
       }
-      muatKomen();
+      renderKomen();
     }
 
     function escapeHtml(str) {
-      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    muatKomen();
+    muatKomenLive();
   </script>
 </body>
-</html>
 </html>
