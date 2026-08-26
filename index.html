@@ -87,11 +87,12 @@
       pointer-events: none;
     }
 
+    /* Animasi Transisi Halaman Meluncur */
     .page-section {
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
-      transform: translateY(10px);
+      transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: translateY(20px) scale(0.98);
       position: absolute;
       top: 0;
       left: 0;
@@ -105,7 +106,7 @@
     .page-section.active-page {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .bg-damask {
@@ -119,16 +120,15 @@
       padding-bottom: max(12px, env(safe-area-inset-bottom));
     }
 
-    #petalsCanvas {
+    #petalsCanvas, #sparkleCanvas {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 15;
     }
+    #petalsCanvas { z-index: 15; }
+    #sparkleCanvas { z-index: 60; }
 
-    /* ======================================================= */
-    /* FEATURE 7: METALLIC GOLD SHIMMER FOIL EFFECT            */
-    /* ======================================================= */
+    /* Shimmer Effect */
     .shimmer-card {
       position: relative;
       overflow: hidden;
@@ -168,9 +168,17 @@
     }
 
     @keyframes shineText {
-      to {
-        background-position: 200% center;
-      }
+      to { background-position: 200% center; }
+    }
+
+    /* Denyutan Halus CTA */
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
+      70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+    }
+    .pulse-glow-btn {
+      animation: pulseGlow 2.5s infinite;
     }
   </style>
 </head>
@@ -178,8 +186,9 @@
 
   <div id="mainContainer" class="w-full max-w-[420px] bg-damask h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
-    <!-- CANVAS ANIMASI KELOPAK BUNGA GUGUR -->
+    <!-- CANVAS ANIMASI KELOPAK & DEBU EMAS BERKILAU -->
     <canvas id="petalsCanvas"></canvas>
+    <canvas id="sparkleCanvas"></canvas>
 
     <!-- COVER GARDEN GATE -->
     <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
@@ -214,7 +223,6 @@
         </svg>
       </div>
 
-      <!-- Kad Tengah (Center Crest dengan Efek Shimmer) -->
       <div id="gateCenterCard" class="shimmer-card relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
         <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
@@ -240,7 +248,7 @@
           <p id="guestName" class="text-base font-semibold text-champagne-300">Tetamu Jemputan</p>
         </div>
 
-        <button onclick="bukaKad()" class="w-full py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-400 hover:from-champagne-400 hover:to-champagne-300 text-ashblue-950 font-bold rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-champagne-300 active:scale-95">
+        <button onclick="bukaKad()" class="pulse-glow-btn w-full py-3.5 bg-gradient-to-r from-champagne-500 to-champagne-400 hover:from-champagne-400 hover:to-champagne-300 text-ashblue-950 font-bold rounded-xl shadow-lg transition duration-200 flex items-center justify-center gap-2 border border-champagne-300 active:scale-95">
           <span>Buka Kad Jemputan</span>
         </button>
       </div>
@@ -259,7 +267,6 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card dengan Kilauan Shimmer -->
         <div class="shimmer-card py-8 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-lg relative overflow-hidden">
           
           <svg class="absolute top-2 left-2 w-10 h-10 text-champagne-500/40 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
@@ -292,7 +299,6 @@
             JUMAAT | 25 SEPTEMBER 2026
           </div>
 
-          <!-- BUTANG ADD TO CALENDAR -->
           <div class="flex gap-2 justify-center pt-1">
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Majlis+Kesyukuran+Rosli+%26+Noorazlina&dates=20260925T030000Z/20260925T080000Z&details=Undangan+ke+Majlis+Kesyukuran+Rosli+%26+Noorazlina&location=Bahiyah+Homestay,+Kuala+Terengganu" target="_blank" rel="noopener noreferrer" class="py-2 px-3.5 bg-white/90 hover:bg-white text-ashblue-900 rounded-xl text-[11px] font-semibold shadow-sm border border-champagne-400/40 flex items-center gap-1.5 transition active:scale-95">
               <svg class="w-3.5 h-3.5 text-champagne-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -354,10 +360,10 @@
           </div>
 
           <div class="flex gap-3 justify-center pt-2">
-            <a href="https://maps.app.goo.gl/YuxHHedL4nUxVdpy6?g_st=aw" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600 flex items-center justify-center gap-1.5">
+            <a href="https://maps.app.goo.gl/YuxHHedL4nUxVdpy6?g_st=aw" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600 flex items-center justify-center gap-1.5 active:scale-95">
               <span>Google Maps</span>
             </a>
-            <a href="https://waze.com/ul/hw2cq55bgc" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center flex items-center justify-center gap-1.5">
+            <a href="https://waze.com/ul/hw2cq55bgc" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center flex items-center justify-center gap-1.5 active:scale-95">
               <span>Waze</span>
             </a>
           </div>
@@ -389,7 +395,7 @@
               <input type="number" id="rsvpPax" min="1" max="50" value="1" required placeholder="Contoh: 1, 2, 5" oninput="this.value = this.value.replace(/[^0-9]/g, '')" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
             </div>
 
-            <button type="submit" id="btnHantarRSVP" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2 pt-3">
+            <button type="submit" id="btnHantarRSVP" class="pulse-glow-btn w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2 pt-3 active:scale-95">
               <span>Sahkan Kehadiran</span>
             </button>
             <p id="rsvpStatusMesej" class="text-center text-xs font-semibold pt-1 hidden"></p>
@@ -416,7 +422,7 @@
             <div>
               <textarea id="komenTeks" required rows="3" placeholder="Tuliskan ucapan & doa anda di sini..." class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50"></textarea>
             </div>
-            <button type="submit" id="btnKirimKomen" class="w-full py-3 bg-ashblue-700 hover:bg-ashblue-800 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-1.5">
+            <button type="submit" id="btnKirimKomen" class="w-full py-3 bg-ashblue-700 hover:bg-ashblue-800 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-1.5 active:scale-95">
               <span>Kirim Ucapan</span>
             </button>
           </form>
@@ -452,7 +458,7 @@
         <span class="text-[10px] font-semibold tracking-wider">UCAPAN</span>
       </button>
 
-      <button id="musicToggleBtn" onclick="toggleMuzik()" class="p-2.5 bg-gradient-to-tr from-champagne-500 to-champagne-400 hover:from-champagne-400 hover:to-champagne-300 text-ashblue-950 rounded-full shadow-md font-bold transition active:scale-90 border border-champagne-300">
+      <button id="musicToggleBtn" onclick="toggleMuzik()" class="pulse-glow-btn p-2.5 bg-gradient-to-tr from-champagne-500 to-champagne-400 hover:from-champagne-400 hover:to-champagne-300 text-ashblue-950 rounded-full shadow-md font-bold transition active:scale-90 border border-champagne-300">
         <svg id="iconPlay" class="w-4 h-4 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         <svg id="iconPause" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
       </button>
@@ -766,6 +772,9 @@
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
+    // =======================================================
+    // 1. ANIMASI KELOPAK BUNGA GUGUR (FALLING PETALS)
+    // =======================================================
     (function initPetals() {
       const canvas = document.getElementById('petalsCanvas');
       const ctx = canvas.getContext('2d');
@@ -823,6 +832,68 @@
         requestAnimationFrame(animate);
       }
       animate();
+    })();
+
+    // =======================================================
+    // 2. ANIMASI PERCIKAN DEBU EMAS (TOUCH & CLICK SPARKLES)
+    // =======================================================
+    (function initSparkles() {
+      const canvas = document.getElementById('sparkleCanvas');
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = canvas.parentElement.clientWidth;
+      let height = canvas.height = canvas.parentElement.clientHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+      });
+
+      let particles = [];
+
+      function createSparkle(x, y) {
+        const count = 6;
+        for (let i = 0; i < count; i++) {
+          particles.push({
+            x: x,
+            y: y,
+            radius: Math.random() * 2.5 + 1,
+            color: `rgba(246, 228, 186, ${Math.random() * 0.8 + 0.2})`,
+            vx: (Math.random() - 0.5) * 3,
+            vy: (Math.random() - 0.5) * 3 - 0.5,
+            life: 1
+          });
+        }
+      }
+
+      const container = document.getElementById('mainContainer');
+      container.addEventListener('pointerdown', (e) => {
+        const rect = container.getBoundingClientRect();
+        createSparkle(e.clientX - rect.left, e.clientY - rect.top);
+      });
+
+      function animateSparkles() {
+        ctx.clearRect(0, 0, width, height);
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+          p.life -= 0.025;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius * p.life, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.shadowBlur = 4;
+          ctx.shadowColor = '#d4af37';
+          ctx.fill();
+
+          if (p.life <= 0) {
+            particles.splice(i, 1);
+            i--;
+          }
+        }
+        requestAnimationFrame(animateSparkles);
+      }
+      animateSparkles();
     })();
 
     muatKomenLive();
