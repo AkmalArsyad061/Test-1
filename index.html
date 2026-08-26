@@ -181,77 +181,35 @@
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- SVG DEFS: DEDIKASI BUNGA MAWAR EMAS ASLI (ACCORDING TO REFERENCE IMAGE) -->
+  <!-- SVG DEFS UNTUK GRADIENT KILAUAN EMAS -->
   <svg class="hidden" aria-hidden="true">
     <defs>
-      <!-- Gradient Emas Halus & Mewah -->
-      <linearGradient id="goldPetalGrad" x1="20%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#fff1bc"/>
-        <stop offset="35%" stop-color="#f5d665"/>
-        <stop offset="70%" stop-color="#d9a82e"/>
-        <stop offset="100%" stop-color="#9a6e14"/>
+      <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#b89025"/>
+        <stop offset="30%" stop-color="#f6e4ba"/>
+        <stop offset="65%" stop-color="#d4af37"/>
+        <stop offset="100%" stop-color="#916c17"/>
       </linearGradient>
       
-      <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#fceda2"/>
-        <stop offset="40%" stop-color="#e5b838"/>
-        <stop offset="85%" stop-color="#aa7918"/>
-        <stop offset="100%" stop-color="#734e06"/>
-      </linearGradient>
-
-      <radialGradient id="roseCenterGrad" cx="45%" cy="45%" r="55%">
-        <stop offset="0%" stop-color="#fffae0"/>
-        <stop offset="40%" stop-color="#f5d35b"/>
-        <stop offset="80%" stop-color="#cb9622"/>
-        <stop offset="100%" stop-color="#80560a"/>
-      </radialGradient>
-
-      <!-- SIMBOL LENGKAP: Golden Rose & Baroque Swirl Corner Bouquet -->
-      <g id="luxury-gold-rose-corner">
-        <!-- 1. Daun & Sulur Filigri (Baroque Foliage & Swirls) -->
-        <path d="M4,4 Q45,2 75,32 Q95,52 82,85 Q68,118 35,135 Q10,145 0,160 Q20,132 42,120 Q72,105 70,68 Q68,38 28,18 Z" fill="url(#goldLeafGrad)" opacity="0.88"/>
-        <path d="M2,2 Q2,45 32,75 Q52,95 85,82 Q118,68 135,35 Q145,10 160,0 Q132,20 120,42 Q105,72 68,70 Q38,68 18,28 Z" fill="url(#goldLeafGrad)" opacity="0.88"/>
-        
-        <!-- Sulur C-Curve & Daun Emas -->
-        <path d="M75,32 Q108,18 128,45 Q138,60 125,75 Q115,82 102,72 Q92,60 102,48 Q112,38 122,48" fill="none" stroke="url(#goldLeafGrad)" stroke-width="2.8" stroke-linecap="round"/>
-        <path d="M32,75 Q18,108 45,128 Q60,138 75,125 Q82,115 72,102 Q60,92 48,102 Q38,112 48,122" fill="none" stroke="url(#goldLeafGrad)" stroke-width="2.8" stroke-linecap="round"/>
-        
-        <path d="M80,18 Q100,5 115,22 Q98,28 80,18 Z" fill="url(#goldLeafGrad)"/>
-        <path d="M18,80 Q5,100 22,115 Q28,98 18,80 Z" fill="url(#goldLeafGrad)"/>
-        <path d="M125,58 Q145,62 138,82 Q125,72 125,58 Z" fill="url(#goldLeafGrad)"/>
-        <path d="M58,125 Q62,145 82,138 Q72,125 58,125 Z" fill="url(#goldLeafGrad)"/>
-
-        <!-- 2. Kuntum Mawar Emas Atas Kecil (Small Rose Top) -->
-        <g transform="translate(100, 22) scale(0.48)">
-          <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
-          <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
-          <path d="M32,20 Q40,16 44,24 Q48,34 38,36 Q28,38 28,28 Q28,22 32,20 Z" fill="url(#goldPetalGrad)"/>
-          <circle cx="34" cy="27" r="4" fill="#fff5cb"/>
-        </g>
-
-        <!-- 3. Kuntum Mawar Emas Tengah Sederhana (Medium Rose Mid) -->
-        <g transform="translate(22, 100) scale(0.48)">
-          <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
-          <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
-          <path d="M32,20 Q40,16 44,24 Q48,34 38,36 Q28,38 28,28 Q28,22 32,20 Z" fill="url(#goldPetalGrad)"/>
-          <circle cx="34" cy="27" r="4" fill="#fff5cb"/>
-        </g>
-
-        <!-- 4. BUNGA MAWAR EMAS UTAMA (Large Blooming Gold Rose) -->
-        <g transform="translate(38, 38) scale(0.88)">
-          <!-- Lapisan Kelopak Luar (Outer Petals) -->
-          <path d="M32,8 C52,-4 75,5 82,24 C89,45 78,65 62,72 C42,80 18,72 8,54 C-2,34 5,16 22,10 C32,6 50,4 32,8 Z" fill="url(#goldPetalGrad)" filter="drop-shadow(0 2px 4px rgba(130,90,10,0.25))"/>
-          <path d="M50,2 Q78,12 80,40 Q75,68 45,74 Q15,70 12,42 Q18,12 50,2 Z" fill="url(#goldPetalGrad)"/>
-          
-          <!-- Kelopak Tengah Berlapis (Layered Mid Petals) -->
-          <path d="M28,18 C48,8 70,18 72,36 C74,54 58,64 42,60 C24,56 16,42 22,28 C26,18 42,16 28,18 Z" fill="url(#roseCenterGrad)"/>
-          <path d="M36,22 C52,18 64,28 62,42 C60,54 46,58 34,52 C22,46 24,34 32,26 C38,20 50,22 36,22 Z" fill="url(#goldPetalGrad)"/>
-          
-          <!-- Inti Pusaran Mawar Berkembang (Rose Heart Spiral) -->
-          <path d="M40,28 C50,26 56,34 54,42 C52,48 42,50 36,46 C30,42 32,34 38,30 C42,26 48,28 40,28 Z" fill="url(#roseCenterGrad)"/>
-          <path d="M42,32 Q48,30 50,36 Q50,42 44,43 Q38,42 40,36 Q42,32 42,32 Z" fill="url(#goldPetalGrad)"/>
-          <path d="M41,34 Q45,32 47,36 Q46,40 43,40 Q40,39 41,34 Z" fill="#fff9dc"/>
-        </g>
+      <!-- Proper Realistic Golden Rose & Botanical Filigree -->
+      <g id="proper-gold-rose">
+        <path d="M0,0 L55,0 C50,15 30,25 25,35 C20,45 28,60 0,65 Z" fill="url(#goldGradient)" opacity="0.12"/>
+        <path d="M0,2 L60,2 C45,18 35,32 18,48 C10,55 5,60 0,68" stroke="url(#goldGradient)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <path d="M2,0 L2,60 C18,45 32,35 48,18 C55,10 60,5 68,0" stroke="url(#goldGradient)" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <!-- Rose Bloom Core -->
+        <circle cx="28" cy="28" r="8" fill="url(#goldGradient)" opacity="0.85"/>
+        <path d="M28,21 C24,21 21,24 21,28 C21,32 25,35 28,35 C31,35 35,32 35,28 C35,23 31,21 28,21 Z" stroke="#0f1821" stroke-width="0.8" fill="none"/>
+        <path d="M25,25 C26,23 30,23 31,25 C32,27 30,30 28,30 C26,30 24,28 25,25 Z" fill="#ffffff" opacity="0.4"/>
+        <!-- Rose Outer Petals -->
+        <path d="M22,23 Q15,20 18,29 Q21,38 30,35 Q39,32 35,23 Q31,14 22,23 Z" stroke="url(#goldGradient)" stroke-width="1.2" fill="none"/>
+        <path d="M19,19 Q12,24 16,33 Q20,42 32,38 Q44,34 38,20 Q32,10 19,19 Z" stroke="url(#goldGradient)" stroke-width="1" fill="none"/>
+        <!-- Leaves & Tendrils -->
+        <path d="M36,20 Q48,14 52,24 Q42,28 35,26 Z" fill="url(#goldGradient)" opacity="0.75"/>
+        <path d="M20,36 Q14,48 24,52 Q28,42 26,35 Z" fill="url(#goldGradient)" opacity="0.75"/>
+        <circle cx="48" cy="10" r="2.5" fill="url(#goldGradient)"/>
+        <circle cx="10" cy="48" r="2.5" fill="url(#goldGradient)"/>
+        <circle cx="62" cy="6" r="1.5" fill="url(#goldGradient)"/>
+        <circle cx="6" cy="62" r="1.5" fill="url(#goldGradient)"/>
       </g>
     </defs>
   </svg>
@@ -265,45 +223,45 @@
     <!-- COVER GARDEN GATE -->
     <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
       
-      <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-2 z-10 shadow-2xl">
-        <svg class="w-full h-44 drop-shadow-md" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+      <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
+        <svg class="w-full h-40 text-champagne-400/30" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
         <div class="h-16 w-8 rounded-r-full border-r-2 border-champagne-400/60 self-end mr-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <svg class="w-full h-44 transform rotate-180 drop-shadow-md" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <svg class="w-full h-40 text-champagne-400/30 transform rotate-180" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
       </div>
 
-      <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-2 z-10 shadow-2xl">
-        <svg class="w-full h-44 transform scale-x-[-1] drop-shadow-md" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+      <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
+        <svg class="w-full h-40 text-champagne-400/30 transform scale-x-[-1]" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
         <div class="h-16 w-8 rounded-l-full border-l-2 border-champagne-400/60 self-start ml-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <svg class="w-full h-44 transform scale-x-[-1] rotate-180 drop-shadow-md" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <svg class="w-full h-40 text-champagne-400/30 transform scale-x-[-1] rotate-180" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
       </div>
 
-      <!-- Kad Tengah (Center Crest dengan Bunga Mawar Emas Sebenar) -->
+      <!-- Kad Tengah (Center Crest dengan Bunga Bucu Emas) -->
       <div id="gateCenterCard" class="shimmer-card relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
-        <!-- Proper Golden Roses di Bucu Kad Tengah -->
-        <svg class="absolute -top-3 -left-3 w-20 h-20 pointer-events-none drop-shadow" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <!-- Proper Gold Roses di Bucu Kad Tengah -->
+        <svg class="absolute -top-1 -left-1 w-16 h-16 pointer-events-none" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
-        <svg class="absolute -top-3 -right-3 w-20 h-20 transform scale-x-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <svg class="absolute -top-1 -right-1 w-16 h-16 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
-        <svg class="absolute -bottom-3 -left-3 w-20 h-20 transform scale-y-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <svg class="absolute -bottom-1 -left-1 w-16 h-16 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
-        <svg class="absolute -bottom-3 -right-3 w-20 h-20 transform rotate-180 pointer-events-none drop-shadow" viewBox="0 0 160 160">
-          <use href="#luxury-gold-rose-corner"/>
+        <svg class="absolute -bottom-1 -right-1 w-16 h-16 transform rotate-180 pointer-events-none" viewBox="0 0 100 100">
+          <use href="#proper-gold-rose"/>
         </svg>
 
         <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
@@ -348,21 +306,21 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card dengan Bunga Emas Penuh di 4 Bucu -->
-        <div class="shimmer-card py-10 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-xl relative overflow-hidden">
+        <!-- Main Couple Card dengan Bunga Emas Realistik di Setiap Bucu -->
+        <div class="shimmer-card py-9 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-lg relative overflow-hidden">
           
-          <!-- Bunga Mawar Emas Asli di 4 Bucu Kad Utama -->
-          <svg class="absolute -top-2 -left-2 w-24 h-24 pointer-events-none drop-shadow" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <!-- Bunga Emas Realistik di 4 Bucu -->
+          <svg class="absolute top-0 left-0 w-20 h-20 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
-          <svg class="absolute -top-2 -right-2 w-24 h-24 transform scale-x-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute top-0 right-0 w-20 h-20 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
-          <svg class="absolute -bottom-2 -left-2 w-24 h-24 transform scale-y-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute bottom-0 left-0 w-20 h-20 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
-          <svg class="absolute -bottom-2 -right-2 w-24 h-24 transform rotate-180 pointer-events-none drop-shadow" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute bottom-0 right-0 w-20 h-20 transform rotate-180 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
 
           <p class="gold-foil-text text-xs tracking-[0.25em] uppercase font-bold font-serif-classic">Tuan Rumah & Keluarga</p>
@@ -396,11 +354,11 @@
         </div>
 
         <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative overflow-hidden">
-          <svg class="absolute -top-2 -left-2 w-12 h-12 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute -top-1 -left-1 w-10 h-10 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
-          <svg class="absolute -bottom-2 -right-2 w-12 h-12 transform rotate-180 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute -bottom-1 -right-1 w-10 h-10 transform rotate-180 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
             "Dan jika kamu menghitung nikmat Allah, nescaya kamu tidak akan mampu mengiranya. Sesungguhnya Allah benar-benar Maha Pengampun, Maha Penyayang."
@@ -431,12 +389,12 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-5 relative overflow-hidden">
-          <!-- Bunga Mawar Emas di Bucu Maklumat Majlis -->
-          <svg class="absolute -top-2 -left-2 w-16 h-16 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <!-- Bunga Emas Realistik di Bucu Maklumat Majlis -->
+          <svg class="absolute -top-1 -left-1 w-14 h-14 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
-          <svg class="absolute -top-2 -right-2 w-16 h-16 transform scale-x-[-1] pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute -top-1 -right-1 w-14 h-14 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
 
           <div class="space-y-1">
@@ -469,8 +427,8 @@
 
         <!-- BORANG RSVP -->
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left relative overflow-hidden">
-          <svg class="absolute -bottom-2 -right-2 w-16 h-16 transform rotate-180 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute -bottom-1 -right-1 w-14 h-14 transform rotate-180 pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
 
           <div class="text-center">
@@ -517,8 +475,8 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 relative overflow-hidden">
-          <svg class="absolute -top-2 -right-2 w-14 h-14 transform scale-x-[-1] pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
-            <use href="#luxury-gold-rose-corner"/>
+          <svg class="absolute -top-1 -right-1 w-12 h-12 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100">
+            <use href="#proper-gold-rose"/>
           </svg>
 
           <form onsubmit="tambahKomenLive(event)" class="space-y-3 text-xs">
@@ -878,7 +836,6 @@
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    // ANIMASI KELOPAK BUNGA GUGUR (FALLING PETALS)
     (function initPetals() {
       const canvas = document.getElementById('petalsCanvas');
       const ctx = canvas.getContext('2d');
@@ -938,7 +895,6 @@
       animate();
     })();
 
-    // ANIMASI PERCIKAN DEBU EMAS (TOUCH & CLICK SPARKLES)
     (function initSparkles() {
       const canvas = document.getElementById('sparkleCanvas');
       const ctx = canvas.getContext('2d');
