@@ -178,36 +178,35 @@
       animation: pulseGlow 2.5s infinite;
     }
 
-    /* Shiny Golden Flower Animation */
+    /* Kilauan Bunga Emas */
     .shiny-flower {
       animation: flowerGlow 3.5s ease-in-out infinite alternate;
     }
 
     @keyframes flowerGlow {
       0% {
-        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4)) brightness(1);
+        filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.4)) brightness(1);
       }
       50% {
-        filter: drop-shadow(0 0 10px rgba(246, 228, 186, 0.9)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.8)) brightness(1.25);
+        filter: drop-shadow(0 0 8px rgba(246, 228, 186, 0.9)) drop-shadow(0 0 14px rgba(212, 175, 55, 0.8)) brightness(1.25);
       }
       100% {
-        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4)) brightness(1);
+        filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.4)) brightness(1);
       }
     }
   </style>
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- SVG INLINE DEFINITIONS -->
-  <svg class="hidden" aria-hidden="true">
+  <!-- SVG DEFS: KILAUAN BUNGA MAWAR EMAS ASLI (ACCORDING TO REFERENCE) -->
+  <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
     <defs>
-      <!-- Gradient Shimmering Gold Petals -->
       <linearGradient id="goldPetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
         <stop offset="0%" stop-color="#ffffff"/>
-        <stop offset="25%" stop-color="#fff1bc"/>
+        <stop offset="20%" stop-color="#fff1bc"/>
         <stop offset="50%" stop-color="#f5d665"/>
-        <stop offset="75%" stop-color="#d9a82e"/>
-        <stop offset="100%" stop-color="#9a6e14"/>
+        <stop offset="80%" stop-color="#d9a82e"/>
+        <stop offset="100%" stop-color="#8a5f08"/>
       </linearGradient>
       
       <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -224,13 +223,11 @@
         <stop offset="100%" stop-color="#7a5208"/>
       </radialGradient>
 
-      <!-- Proper Golden Rose & Baroque Swirl Corner Bouquet -->
       <g id="luxury-gold-rose-corner">
-        <!-- 1. Daun & Sulur Filigri (Baroque Foliage & Swirls) -->
+        <!-- 1. Daun & Sulur Filigri -->
         <path d="M4,4 Q45,2 75,32 Q95,52 82,85 Q68,118 35,135 Q10,145 0,160 Q20,132 42,120 Q72,105 70,68 Q68,38 28,18 Z" fill="url(#goldLeafGrad)" opacity="0.9"/>
         <path d="M2,2 Q2,45 32,75 Q52,95 85,82 Q118,68 135,35 Q145,10 160,0 Q132,20 120,42 Q105,72 68,70 Q38,68 18,28 Z" fill="url(#goldLeafGrad)" opacity="0.9"/>
         
-        <!-- Sulur C-Curve & Daun Emas -->
         <path d="M75,32 Q108,18 128,45 Q138,60 125,75 Q115,82 102,72 Q92,60 102,48 Q112,38 122,48" fill="none" stroke="url(#goldLeafGrad)" stroke-width="3" stroke-linecap="round"/>
         <path d="M32,75 Q18,108 45,128 Q60,138 75,125 Q82,115 72,102 Q60,92 48,102 Q38,112 48,122" fill="none" stroke="url(#goldLeafGrad)" stroke-width="3" stroke-linecap="round"/>
         
@@ -239,7 +236,7 @@
         <path d="M125,58 Q145,62 138,82 Q125,72 125,58 Z" fill="url(#goldLeafGrad)"/>
         <path d="M58,125 Q62,145 82,138 Q72,125 58,125 Z" fill="url(#goldLeafGrad)"/>
 
-        <!-- 2. Kuntum Mawar Emas Atas Kecil (Small Rose Top) -->
+        <!-- 2. Kuntum Mawar Emas Atas Kecil -->
         <g transform="translate(100, 22) scale(0.48)">
           <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
           <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
@@ -247,7 +244,7 @@
           <circle cx="34" cy="27" r="4" fill="#ffffff"/>
         </g>
 
-        <!-- 3. Kuntum Mawar Emas Tengah Sederhana (Medium Rose Mid) -->
+        <!-- 3. Kuntum Mawar Emas Tengah Sederhana -->
         <g transform="translate(22, 100) scale(0.48)">
           <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
           <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
@@ -255,7 +252,7 @@
           <circle cx="34" cy="27" r="4" fill="#ffffff"/>
         </g>
 
-        <!-- 4. BUNGA MAWAR EMAS UTAMA (Large Blooming Gold Rose) -->
+        <!-- 4. BUNGA MAWAR EMAS UTAMA -->
         <g transform="translate(38, 38) scale(0.88)">
           <path d="M32,8 C52,-4 75,5 82,24 C89,45 78,65 62,72 C42,80 18,72 8,54 C-2,34 5,16 22,10 C32,6 50,4 32,8 Z" fill="url(#goldPetalGrad)"/>
           <path d="M50,2 Q78,12 80,40 Q75,68 45,74 Q15,70 12,42 Q18,12 50,2 Z" fill="url(#goldPetalGrad)"/>
@@ -696,6 +693,7 @@
       }
     }
 
+    // Countdown Timer (25 September 2026, 1:30 PM)
     const tarikhMajlis = new Date("2026-09-25T13:30:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -709,6 +707,7 @@
       }
     }, 1000);
 
+    // DOWNLOAD .ICS FILE
     function downloadICS() {
       const icsData = [
         "BEGIN:VCALENDAR",
@@ -891,6 +890,7 @@
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
+    // ANIMASI KELOPAK BUNGA GUGUR (FALLING PETALS)
     (function initPetals() {
       const canvas = document.getElementById('petalsCanvas');
       const ctx = canvas.getContext('2d');
@@ -950,6 +950,7 @@
       animate();
     })();
 
+    // ANIMASI PERCIKAN DEBU EMAS (TOUCH & CLICK SPARKLES)
     (function initSparkles() {
       const canvas = document.getElementById('sparkleCanvas');
       const ctx = canvas.getContext('2d');
