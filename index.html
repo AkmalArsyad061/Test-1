@@ -262,16 +262,16 @@
 
           <div class="space-y-1">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Lokasi Majlis</h3>
-            <p class="text-base font-semibold text-slate-800">Masjid Crystal</p>
+            <p class="text-base font-semibold text-slate-800">Bahiyah Homestay</p>
             <p class="text-xs text-slate-500">Kuala Terengganu, Terengganu</p>
           </div>
 
           <div class="flex gap-3 justify-center pt-2">
-            <a href="https://maps.app.goo.gl/afW8aeptaYxJvXte9" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600">
-              Google Maps
+            <a href="https://maps.app.goo.gl/YuxHHedL4nUxVdpy6?g_st=aw" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600 flex items-center justify-center gap-1.5">
+              <span>Google Maps</span>
             </a>
-            <a href="https://ul.waze.com/ul?venue_id=67567669.675807764.2392511&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center">
-              Waze
+            <a href="https://waze.com/ul/hw2cq55bgc" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center flex items-center justify-center gap-1.5">
+              <span>Waze</span>
             </a>
           </div>
         </div>
@@ -374,7 +374,6 @@
   </div>
 
   <script>
-    // URL Google Apps Script yang telah diasingkan
     const RSVP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpIUgku6MKZUTNlQPSwcuXXNfMjtJjkLE7_n6AgBtqREZHtANG0jf0nFLQ4kVjQ28PKw/exec";
     const UCAPAN_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQjEx0JdSx3C46mcu-hYexRbNnQtJOh_E2flyhvCrq7-RxlnKy9Y0EicIUeA34Yc-U/exec";
 
@@ -498,7 +497,6 @@
       }
     }, 1000);
 
-    // HANTAR RSVP (TERUS KE GOOGLE SHEET RSVP)
     function hantarRSVPSheet(e) {
       e.preventDefault();
       
@@ -538,7 +536,6 @@
       });
     }
 
-    // TARIK DATA UCAPAN DARI GOOGLE SHEET UCAPAN
     function muatKomenLive() {
       fetch(UCAPAN_SCRIPT_URL)
         .then(res => res.json())
@@ -581,7 +578,6 @@
       });
     }
 
-    // HANTAR UCAPAN KE GOOGLE SHEET UCAPAN
     function tambahKomenLive(e) {
       e.preventDefault();
       const btn = document.getElementById('btnKirimKomen');
