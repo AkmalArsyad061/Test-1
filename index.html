@@ -135,7 +135,6 @@
       
       <!-- Pintu Gerbang Kiri -->
       <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
-        <!-- Botanical Lattice SVG (Kiri) -->
         <svg class="w-full h-40 text-champagne-400/20" viewBox="0 0 100 150" fill="currentColor">
           <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z M10,20 Q50,40 90,20 L90,130 Q50,110 10,130 Z"/>
           <path d="M50,10 Q60,50 80,60 Q50,70 50,140 Q40,90 20,70 Q40,60 50,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -150,7 +149,6 @@
 
       <!-- Pintu Gerbang Kanan -->
       <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
-        <!-- Botanical Lattice SVG (Kanan) -->
         <svg class="w-full h-40 text-champagne-400/20 transform scale-x-[-1]" viewBox="0 0 100 150" fill="currentColor">
           <path d="M0,0 Q50,20 100,0 L100,150 Q50,130 0,150 Z M10,20 Q50,40 90,20 L90,130 Q50,110 10,130 Z"/>
           <path d="M50,10 Q60,50 80,60 Q50,70 50,140 Q40,90 20,70 Q40,60 50,10 Z" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -163,7 +161,7 @@
         </svg>
       </div>
 
-      <!-- Kad Tengah (Center Crest) -->
+      <!-- Kad Tengah -->
       <div id="gateCenterCard" class="relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500">
         
         <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
@@ -177,7 +175,6 @@
             <span class="text-champagne-400 text-xs">❦</span>
             <div class="h-[1px] w-10 bg-champagne-400/40"></div>
           </div>
-          <!-- Rosli Atas, Noorazlina Bawah -->
           <h1 class="font-script text-5xl text-white pt-1 leading-tight drop-shadow">Rosli</h1>
           <p class="text-sm font-serif-classic italic text-champagne-300 my-0.5">&</p>
           <h1 class="font-script text-5xl text-white leading-tight drop-shadow">Noorazlina</h1>
@@ -209,7 +206,6 @@
         <!-- Main Couple Card -->
         <div class="py-8 px-4 space-y-3 rounded-3xl bg-white/90 backdrop-blur-sm border-2 border-champagne-400/40 shadow-md relative overflow-hidden">
           <p class="font-serif-classic text-champagne-600 text-xs tracking-[0.2em] uppercase font-semibold">Tuan Rumah & Keluarga</p>
-          <!-- Rosli Atas, Noorazlina Bawah -->
           <h1 class="font-script text-6xl text-ashblue-950 pt-1 leading-none drop-shadow-sm">Rosli</h1>
           <div class="flex items-center justify-center gap-3 my-1">
             <div class="h-[1px] w-12 bg-champagne-400"></div>
@@ -390,17 +386,22 @@
     let isOwner = false;
     let liveComments = [];
 
-    // Menggunakan lagu.mp3 (fallback ke akad.mp3 jika fail belum ditukar)
+    // Menggunakan nama fail sebenar: IppoHafiz.mp3
     const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
-    const audio = new Audio(basePath + 'lagu.mp3');
+    const audio = new Audio(basePath + 'IppoHafiz.mp3');
     audio.loop = true;
     audio.preload = 'auto';
     audio.volume = 0.10;
 
-    // Fallback sekiranya nama fail masih akad.mp3
+    // Fallback sekiranya nama fail disimpan sebagai huruf kecil
+    let fallbackIndex = 0;
+    const fallbacks = [basePath + 'ippohafiz.mp3', basePath + 'lagu.mp3', basePath + 'akad.mp3'];
     audio.onerror = () => {
-      audio.src = basePath + 'akad.mp3';
-      audio.load();
+      if (fallbackIndex < fallbacks.length) {
+        audio.src = fallbacks[fallbackIndex];
+        fallbackIndex++;
+        audio.load();
+      }
     };
 
     function switchPage(pageId) {
@@ -442,7 +443,7 @@
       document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
     }
 
-    // Animasi Pintu Gerbang Bunga & Mainkan Audio
+    // Animasi Pintu Gerbang Bunga
     function bukaKad() {
       const gateLeft = document.getElementById('gateLeft');
       const gateRight = document.getElementById('gateRight');
