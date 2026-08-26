@@ -220,10 +220,9 @@
         </svg>
       </div>
 
-      <!-- Kad Tengah (Center Crest dengan Bucu Emas Minimalist) -->
+      <!-- Kad Tengah -->
       <div id="gateCenterCard" class="shimmer-card relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
-        <!-- Elegant Minimalist Gold Corners -->
         <svg class="absolute top-2 left-2 w-10 h-10 text-champagne-400/70 pointer-events-none" viewBox="0 0 60 60" fill="none">
           <path d="M4,4 L26,4 C22,10 10,22 4,26 Z" fill="currentColor" fill-opacity="0.3"/>
           <path d="M4,4 Q22,5 28,20 Q34,5 52,4 Q46,22 52,40 Q34,34 28,52 Q22,34 4,40 Z" stroke="currentColor" stroke-width="1.2"/>
@@ -287,10 +286,9 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card dengan Bucu Emas Halus & Estetik -->
+        <!-- Main Couple Card -->
         <div class="shimmer-card py-8 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-lg relative overflow-hidden">
           
-          <!-- Bucu Emas Lembut 4 Sudut -->
           <svg class="absolute top-2 left-2 w-12 h-12 text-champagne-500/70 pointer-events-none" viewBox="0 0 100 100" fill="none">
             <path d="M5,5 Q35,8 45,30 Q55,10 80,5 Q60,35 70,60 Q45,45 30,75 Q25,40 5,35 Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="1.4"/>
             <circle cx="45" cy="30" r="3.5" fill="currentColor"/>
@@ -364,15 +362,14 @@
 
     <!-- PAGE 2: MAJLIS & RSVP -->
     <div id="page-details" class="page-section">
-      <div class="pt-8 px-5 text-center space-y-6">
+      <div class="pt-8 px-5 text-center space-y-5">
         
         <div class="space-y-1">
           <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Atur Cara & Lokasi</h2>
           <h1 class="font-script text-5xl text-ashblue-900">Maklumat Majlis</h1>
         </div>
 
-        <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-5 relative overflow-hidden">
-          <!-- Subtle Aesthetic Corner Accents -->
+        <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-4 relative overflow-hidden">
           <svg class="absolute top-2 left-2 w-8 h-8 text-champagne-400/50 pointer-events-none" viewBox="0 0 60 60" fill="currentColor">
             <circle cx="15" cy="15" r="5"/>
             <path d="M5,5 Q25,5 30,20 Q12,28 5,5 Z"/>
@@ -400,13 +397,30 @@
             <p class="text-xs text-slate-500">Kuala Terengganu, Terengganu</p>
           </div>
 
-          <div class="flex gap-3 justify-center pt-2">
+          <div class="flex gap-3 justify-center pt-1">
             <a href="https://maps.app.goo.gl/YuxHHedL4nUxVdpy6?g_st=aw" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600 flex items-center justify-center gap-1.5 active:scale-95">
               <span>Google Maps</span>
             </a>
             <a href="https://waze.com/ul/hw2cq55bgc" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center flex items-center justify-center gap-1.5 active:scale-95">
               <span>Waze</span>
             </a>
+          </div>
+        </div>
+
+        <!-- FEATURE 4: LIVE WEATHER WIDGET KUALA TERENGGANU -->
+        <div class="bg-white/95 p-4 rounded-2xl border border-ashblue-200 shadow-sm flex items-center justify-between text-left relative overflow-hidden">
+          <div class="flex items-center gap-3">
+            <div id="weatherIconContainer" class="w-10 h-10 rounded-xl bg-ashblue-100 flex items-center justify-center text-xl text-ashblue-800 shadow-inner">
+              🌤️
+            </div>
+            <div>
+              <p class="text-[10px] text-ashblue-700 font-bold uppercase tracking-wider">Cuaca Kuala Terengganu</p>
+              <p id="weatherDesc" class="text-xs font-semibold text-slate-800">Memuatkan ramalan...</p>
+            </div>
+          </div>
+          <div class="text-right">
+            <span id="weatherTemp" class="text-lg font-bold text-ashblue-900">--°C</span>
+            <span class="block text-[9px] text-slate-400">Live Forecast</span>
           </div>
         </div>
 
@@ -618,6 +632,7 @@
       }
     }
 
+    // Countdown Timer (25 September 2026, 1:30 PM)
     const tarikhMajlis = new Date("2026-09-25T13:30:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -631,6 +646,7 @@
       }
     }, 1000);
 
+    // DOWNLOAD .ICS FILE
     function downloadICS() {
       const icsData = [
         "BEGIN:VCALENDAR",
@@ -654,6 +670,48 @@
       link.click();
       document.body.removeChild(link);
     }
+
+    // =======================================================
+    // RAMALAN CUACA LIVE (OPEN-METEO API - KUALA TERENGGANU)
+    // =======================================================
+    (function muatCuaca() {
+      // Koordinat Kuala Terengganu: 5.3302, 103.1408
+      const url = "https://api.open-meteo.com/v1/forecast?latitude=5.3302&longitude=103.1408&current_weather=true";
+
+      fetch(url)
+        .then(res => res.json())
+        .then(data => {
+          if (data && data.current_weather) {
+            const temp = Math.round(data.current_weather.temperature);
+            const code = data.current_weather.weathercode;
+            
+            let desc = "Cuaca Baik & Cerah";
+            let icon = "☀️";
+
+            if ([1, 2, 3].includes(code)) {
+              desc = "Sedikit Berawan";
+              icon = "🌤️";
+            } else if ([45, 48].includes(code)) {
+              desc = "Berkabus / Redup";
+              icon = "🌫️";
+            } else if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) {
+              desc = "Hujan Ringan / Redai";
+              icon = "🌧️";
+            } else if ([95, 96, 99].includes(code)) {
+              desc = "Hujan & Ribut Petir";
+              icon = "⛈️";
+            }
+
+            document.getElementById('weatherTemp').innerText = `${temp}°C`;
+            document.getElementById('weatherDesc').innerText = desc;
+            document.getElementById('weatherIconContainer').innerText = icon;
+          }
+        })
+        .catch(err => {
+          document.getElementById('weatherDesc').innerText = "Cerah & Redup";
+          document.getElementById('weatherTemp').innerText = "30°C";
+        });
+    })();
 
     function hantarRSVPSheet(e) {
       e.preventDefault();
