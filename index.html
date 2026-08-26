@@ -177,68 +177,95 @@
     .pulse-glow-btn {
       animation: pulseGlow 2.5s infinite;
     }
+
+    /* Shiny Golden Flower Animation */
+    .shiny-flower {
+      animation: flowerGlow 3.5s ease-in-out infinite alternate;
+    }
+
+    @keyframes flowerGlow {
+      0% {
+        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4)) brightness(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 10px rgba(246, 228, 186, 0.9)) drop-shadow(0 0 16px rgba(212, 175, 55, 0.8)) brightness(1.25);
+      }
+      100% {
+        filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4)) brightness(1);
+      }
+    }
   </style>
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- SVG DEFS: DEDIKASI BUNGA MAWAR EMAS ASLI -->
+  <!-- SVG INLINE DEFINITIONS -->
   <svg class="hidden" aria-hidden="true">
     <defs>
-      <linearGradient id="goldPetalGrad" x1="20%" y1="0%" x2="80%" y2="100%">
-        <stop offset="0%" stop-color="#fff1bc"/>
-        <stop offset="35%" stop-color="#f5d665"/>
-        <stop offset="70%" stop-color="#d9a82e"/>
+      <!-- Gradient Shimmering Gold Petals -->
+      <linearGradient id="goldPetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="25%" stop-color="#fff1bc"/>
+        <stop offset="50%" stop-color="#f5d665"/>
+        <stop offset="75%" stop-color="#d9a82e"/>
         <stop offset="100%" stop-color="#9a6e14"/>
       </linearGradient>
       
       <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#fceda2"/>
-        <stop offset="40%" stop-color="#e5b838"/>
-        <stop offset="85%" stop-color="#aa7918"/>
-        <stop offset="100%" stop-color="#734e06"/>
+        <stop offset="0%" stop-color="#fff9d6"/>
+        <stop offset="35%" stop-color="#e5b838"/>
+        <stop offset="75%" stop-color="#aa7918"/>
+        <stop offset="100%" stop-color="#654203"/>
       </linearGradient>
 
-      <radialGradient id="roseCenterGrad" cx="45%" cy="45%" r="55%">
-        <stop offset="0%" stop-color="#fffae0"/>
-        <stop offset="40%" stop-color="#f5d35b"/>
-        <stop offset="80%" stop-color="#cb9622"/>
-        <stop offset="100%" stop-color="#80560a"/>
+      <radialGradient id="roseCenterGrad" cx="40%" cy="40%" r="60%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="30%" stop-color="#fff0aa"/>
+        <stop offset="65%" stop-color="#d9a82e"/>
+        <stop offset="100%" stop-color="#7a5208"/>
       </radialGradient>
 
+      <!-- Proper Golden Rose & Baroque Swirl Corner Bouquet -->
       <g id="luxury-gold-rose-corner">
-        <path d="M4,4 Q45,2 75,32 Q95,52 82,85 Q68,118 35,135 Q10,145 0,160 Q20,132 42,120 Q72,105 70,68 Q68,38 28,18 Z" fill="url(#goldLeafGrad)" opacity="0.88"/>
-        <path d="M2,2 Q2,45 32,75 Q52,95 85,82 Q118,68 135,35 Q145,10 160,0 Q132,20 120,42 Q105,72 68,70 Q38,68 18,28 Z" fill="url(#goldLeafGrad)" opacity="0.88"/>
+        <!-- 1. Daun & Sulur Filigri (Baroque Foliage & Swirls) -->
+        <path d="M4,4 Q45,2 75,32 Q95,52 82,85 Q68,118 35,135 Q10,145 0,160 Q20,132 42,120 Q72,105 70,68 Q68,38 28,18 Z" fill="url(#goldLeafGrad)" opacity="0.9"/>
+        <path d="M2,2 Q2,45 32,75 Q52,95 85,82 Q118,68 135,35 Q145,10 160,0 Q132,20 120,42 Q105,72 68,70 Q38,68 18,28 Z" fill="url(#goldLeafGrad)" opacity="0.9"/>
         
-        <path d="M75,32 Q108,18 128,45 Q138,60 125,75 Q115,82 102,72 Q92,60 102,48 Q112,38 122,48" fill="none" stroke="url(#goldLeafGrad)" stroke-width="2.8" stroke-linecap="round"/>
-        <path d="M32,75 Q18,108 45,128 Q60,138 75,125 Q82,115 72,102 Q60,92 48,102 Q38,112 48,122" fill="none" stroke="url(#goldLeafGrad)" stroke-width="2.8" stroke-linecap="round"/>
+        <!-- Sulur C-Curve & Daun Emas -->
+        <path d="M75,32 Q108,18 128,45 Q138,60 125,75 Q115,82 102,72 Q92,60 102,48 Q112,38 122,48" fill="none" stroke="url(#goldLeafGrad)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M32,75 Q18,108 45,128 Q60,138 75,125 Q82,115 72,102 Q60,92 48,102 Q38,112 48,122" fill="none" stroke="url(#goldLeafGrad)" stroke-width="3" stroke-linecap="round"/>
         
         <path d="M80,18 Q100,5 115,22 Q98,28 80,18 Z" fill="url(#goldLeafGrad)"/>
         <path d="M18,80 Q5,100 22,115 Q28,98 18,80 Z" fill="url(#goldLeafGrad)"/>
         <path d="M125,58 Q145,62 138,82 Q125,72 125,58 Z" fill="url(#goldLeafGrad)"/>
         <path d="M58,125 Q62,145 82,138 Q72,125 58,125 Z" fill="url(#goldLeafGrad)"/>
 
+        <!-- 2. Kuntum Mawar Emas Atas Kecil (Small Rose Top) -->
         <g transform="translate(100, 22) scale(0.48)">
           <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
           <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
           <path d="M32,20 Q40,16 44,24 Q48,34 38,36 Q28,38 28,28 Q28,22 32,20 Z" fill="url(#goldPetalGrad)"/>
-          <circle cx="34" cy="27" r="4" fill="#fff5cb"/>
+          <circle cx="34" cy="27" r="4" fill="#ffffff"/>
         </g>
 
+        <!-- 3. Kuntum Mawar Emas Tengah Sederhana (Medium Rose Mid) -->
         <g transform="translate(22, 100) scale(0.48)">
           <path d="M30,5 C45,-5 65,5 68,22 C72,42 50,55 35,52 C15,50 2,32 10,18 C18,5 40,2 30,5 Z" fill="url(#goldPetalGrad)"/>
           <path d="M35,12 C48,10 58,20 54,32 C50,42 35,46 25,40 C15,35 15,22 24,16 C30,12 42,12 35,12 Z" fill="url(#roseCenterGrad)"/>
           <path d="M32,20 Q40,16 44,24 Q48,34 38,36 Q28,38 28,28 Q28,22 32,20 Z" fill="url(#goldPetalGrad)"/>
-          <circle cx="34" cy="27" r="4" fill="#fff5cb"/>
+          <circle cx="34" cy="27" r="4" fill="#ffffff"/>
         </g>
 
+        <!-- 4. BUNGA MAWAR EMAS UTAMA (Large Blooming Gold Rose) -->
         <g transform="translate(38, 38) scale(0.88)">
-          <path d="M32,8 C52,-4 75,5 82,24 C89,45 78,65 62,72 C42,80 18,72 8,54 C-2,34 5,16 22,10 C32,6 50,4 32,8 Z" fill="url(#goldPetalGrad)" filter="drop-shadow(0 2px 4px rgba(130,90,10,0.25))"/>
+          <path d="M32,8 C52,-4 75,5 82,24 C89,45 78,65 62,72 C42,80 18,72 8,54 C-2,34 5,16 22,10 C32,6 50,4 32,8 Z" fill="url(#goldPetalGrad)"/>
           <path d="M50,2 Q78,12 80,40 Q75,68 45,74 Q15,70 12,42 Q18,12 50,2 Z" fill="url(#goldPetalGrad)"/>
+          
           <path d="M28,18 C48,8 70,18 72,36 C74,54 58,64 42,60 C24,56 16,42 22,28 C26,18 42,16 28,18 Z" fill="url(#roseCenterGrad)"/>
           <path d="M36,22 C52,18 64,28 62,42 C60,54 46,58 34,52 C22,46 24,34 32,26 C38,20 50,22 36,22 Z" fill="url(#goldPetalGrad)"/>
+          
           <path d="M40,28 C50,26 56,34 54,42 C52,48 42,50 36,46 C30,42 32,34 38,30 C42,26 48,28 40,28 Z" fill="url(#roseCenterGrad)"/>
           <path d="M42,32 Q48,30 50,36 Q50,42 44,43 Q38,42 40,36 Q42,32 42,32 Z" fill="url(#goldPetalGrad)"/>
-          <path d="M41,34 Q45,32 47,36 Q46,40 43,40 Q40,39 41,34 Z" fill="#fff9dc"/>
+          <path d="M41,34 Q45,32 47,36 Q46,40 43,40 Q40,39 41,34 Z" fill="#ffffff"/>
         </g>
       </g>
     </defs>
@@ -254,42 +281,43 @@
     <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
       
       <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-2 z-10 shadow-2xl">
-        <svg class="w-full h-44 drop-shadow-md" viewBox="0 0 160 160">
+        <svg class="w-full h-44 shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
         <div class="h-16 w-8 rounded-r-full border-r-2 border-champagne-400/60 self-end mr-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <svg class="w-full h-44 transform rotate-180 drop-shadow-md" viewBox="0 0 160 160">
+        <svg class="w-full h-44 transform rotate-180 shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
       </div>
 
       <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-2 z-10 shadow-2xl">
-        <svg class="w-full h-44 transform scale-x-[-1] drop-shadow-md" viewBox="0 0 160 160">
+        <svg class="w-full h-44 transform scale-x-[-1] shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
         <div class="h-16 w-8 rounded-l-full border-l-2 border-champagne-400/60 self-start ml-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <svg class="w-full h-44 transform scale-x-[-1] rotate-180 drop-shadow-md" viewBox="0 0 160 160">
+        <svg class="w-full h-44 transform scale-x-[-1] rotate-180 shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
       </div>
 
-      <!-- Kad Tengah -->
+      <!-- Kad Tengah (Center Crest) -->
       <div id="gateCenterCard" class="shimmer-card relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
-        <svg class="absolute -top-3 -left-3 w-20 h-20 pointer-events-none drop-shadow" viewBox="0 0 160 160">
+        <!-- Shiny Golden Roses di 4 Bucu Kad Tengah -->
+        <svg class="absolute -top-3 -left-3 w-20 h-20 pointer-events-none shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
-        <svg class="absolute -top-3 -right-3 w-20 h-20 transform scale-x-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
+        <svg class="absolute -top-3 -right-3 w-20 h-20 transform scale-x-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
-        <svg class="absolute -bottom-3 -left-3 w-20 h-20 transform scale-y-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
+        <svg class="absolute -bottom-3 -left-3 w-20 h-20 transform scale-y-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
-        <svg class="absolute -bottom-3 -right-3 w-20 h-20 transform rotate-180 pointer-events-none drop-shadow" viewBox="0 0 160 160">
+        <svg class="absolute -bottom-3 -right-3 w-20 h-20 transform rotate-180 pointer-events-none shiny-flower" viewBox="0 0 160 160">
           <use href="#luxury-gold-rose-corner"/>
         </svg>
 
@@ -335,19 +363,19 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card -->
+        <!-- Main Couple Card dengan Bunga Mawar Emas Berkilau di 4 Bucu -->
         <div class="shimmer-card py-10 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-xl relative overflow-hidden">
           
-          <svg class="absolute -top-2 -left-2 w-24 h-24 pointer-events-none drop-shadow" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -left-2 w-24 h-24 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
-          <svg class="absolute -top-2 -right-2 w-24 h-24 transform scale-x-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -right-2 w-24 h-24 transform scale-x-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
-          <svg class="absolute -bottom-2 -left-2 w-24 h-24 transform scale-y-[-1] pointer-events-none drop-shadow" viewBox="0 0 160 160">
+          <svg class="absolute -bottom-2 -left-2 w-24 h-24 transform scale-y-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
-          <svg class="absolute -bottom-2 -right-2 w-24 h-24 transform rotate-180 pointer-events-none drop-shadow" viewBox="0 0 160 160">
+          <svg class="absolute -bottom-2 -right-2 w-24 h-24 transform rotate-180 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
 
@@ -368,7 +396,7 @@
             JUMAAT | 25 SEPTEMBER 2026
           </div>
 
-          <!-- BUTANG ADD TO CALENDAR (1:30 PM - 6:00 PM) -->
+          <!-- BUTANG ADD TO CALENDAR -->
           <div class="flex gap-2 justify-center pt-1">
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Majlis+Kesyukuran+Rosli+%26+Noorazlina&dates=20260925T053000Z/20260925T100000Z&details=Undangan+ke+Majlis+Kesyukuran+Rosli+%26+Noorazlina+(1:30+PM+-+6:00+PM)&location=Bahiyah+Homestay,+Kuala+Terengganu" target="_blank" rel="noopener noreferrer" class="py-2 px-3.5 bg-white/90 hover:bg-white text-ashblue-900 rounded-xl text-[11px] font-semibold shadow-sm border border-champagne-400/40 flex items-center gap-1.5 transition active:scale-95">
               <svg class="w-3.5 h-3.5 text-champagne-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -382,10 +410,10 @@
         </div>
 
         <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative overflow-hidden">
-          <svg class="absolute -top-2 -left-2 w-12 h-12 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -left-2 w-12 h-12 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
-          <svg class="absolute -bottom-2 -right-2 w-12 h-12 transform rotate-180 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -bottom-2 -right-2 w-12 h-12 transform rotate-180 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
@@ -417,16 +445,15 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-5 relative overflow-hidden">
-          <svg class="absolute -top-2 -left-2 w-16 h-16 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -left-2 w-16 h-16 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
-          <svg class="absolute -top-2 -right-2 w-16 h-16 transform scale-x-[-1] pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -right-2 w-16 h-16 transform scale-x-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
 
           <div class="space-y-1">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Masa Majlis</h3>
-            <!-- MASA DIKEMAS KINI: 1:30 PM – 6:00 PM -->
             <p class="text-base font-semibold text-slate-800">1:30 PM – 6:00 PM</p>
             <p class="text-xs text-slate-500">25 September 2026 (Jumaat)</p>
           </div>
@@ -455,7 +482,7 @@
 
         <!-- BORANG RSVP -->
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left relative overflow-hidden">
-          <svg class="absolute -bottom-2 -right-2 w-16 h-16 transform rotate-180 pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -bottom-2 -right-2 w-16 h-16 transform rotate-180 pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
 
@@ -503,7 +530,7 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 relative overflow-hidden">
-          <svg class="absolute -top-2 -right-2 w-14 h-14 transform scale-x-[-1] pointer-events-none drop-shadow-sm" viewBox="0 0 160 160">
+          <svg class="absolute -top-2 -right-2 w-14 h-14 transform scale-x-[-1] pointer-events-none shiny-flower" viewBox="0 0 160 160">
             <use href="#luxury-gold-rose-corner"/>
           </svg>
 
@@ -669,7 +696,6 @@
       }
     }
 
-    // Countdown Timer (25 September 2026, 1:30 PM)
     const tarikhMajlis = new Date("2026-09-25T13:30:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -683,7 +709,6 @@
       }
     }, 1000);
 
-    // DOWNLOAD .ICS FILE (Apple / iCal) - 1:30 PM hingga 6:00 PM (05:30Z - 10:00Z UTC)
     function downloadICS() {
       const icsData = [
         "BEGIN:VCALENDAR",
