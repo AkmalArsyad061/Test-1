@@ -118,11 +118,22 @@
     .safe-bottom {
       padding-bottom: max(12px, env(safe-area-inset-bottom));
     }
+
+    /* Falling Petals Canvas */
+    #petalsCanvas {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 15;
+    }
   </style>
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
   <div id="mainContainer" class="w-full max-w-[420px] bg-damask h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
+
+    <!-- CANVAS ANIMASI KELOPAK BUNGA GUGUR -->
+    <canvas id="petalsCanvas"></canvas>
 
     <!-- COVER GARDEN GATE -->
     <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
@@ -214,8 +225,22 @@
           <h1 class="font-script text-6xl text-ashblue-950 pb-1 leading-none drop-shadow-sm">Noorazlina</h1>
         </div>
 
-        <div class="inline-block bg-ashblue-900 text-champagne-300 px-6 py-2 rounded-full text-xs tracking-widest font-semibold shadow-md border border-champagne-400/30">
-          JUMAAT | 25 SEPTEMBER 2026
+        <div class="space-y-2.5">
+          <div class="inline-block bg-ashblue-900 text-champagne-300 px-6 py-2 rounded-full text-xs tracking-widest font-semibold shadow-md border border-champagne-400/30">
+            JUMAAT | 25 SEPTEMBER 2026
+          </div>
+
+          <!-- BUTANG ADD TO CALENDAR -->
+          <div class="flex gap-2 justify-center pt-1">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Majlis+Kesyukuran+Rosli+%26+Noorazlina&dates=20260925T030000Z/20260925T080000Z&details=Undangan+ke+Majlis+Kesyukuran+Rosli+%26+Noorazlina&location=Bahiyah+Homestay,+Kuala+Terengganu" target="_blank" rel="noopener noreferrer" class="py-2 px-3.5 bg-white/90 hover:bg-white text-ashblue-900 rounded-xl text-[11px] font-semibold shadow-sm border border-champagne-400/40 flex items-center gap-1.5 transition active:scale-95">
+              <svg class="w-3.5 h-3.5 text-champagne-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+              <span>Google Calendar</span>
+            </a>
+            <button onclick="downloadICS()" class="py-2 px-3.5 bg-white/90 hover:bg-white text-ashblue-900 rounded-xl text-[11px] font-semibold shadow-sm border border-champagne-400/40 flex items-center gap-1.5 transition active:scale-95">
+              <svg class="w-3.5 h-3.5 text-champagne-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Apple / iCal</span>
+            </button>
+          </div>
         </div>
 
         <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative">
@@ -497,6 +522,31 @@
       }
     }, 1000);
 
+    // DOWNLOAD .ICS FILE (APPLE / OUTLOOK)
+    function downloadICS() {
+      const icsData = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Majlis Kesyukuran Rosli & Noorazlina//MY",
+        "BEGIN:VEVENT",
+        "SUMMARY:Majlis Kesyukuran Rosli & Noorazlina",
+        "DESCRIPTION:Undangan ke Majlis Kesyukuran Rosli & Noorazlina",
+        "LOCATION:Bahiyah Homestay, Kuala Terengganu",
+        "DTSTART:20260925T030000Z",
+        "DTEND:20260925T080000Z",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\n");
+
+      const blob = new Blob([icsData], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute("download", "Majlis_Kesyukuran_Rosli_Noorazlina.ics");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
     function hantarRSVPSheet(e) {
       e.preventDefault();
       
@@ -654,6 +704,68 @@
     function escapeHtml(str) {
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
+
+    // =======================================================
+    // ANIMASI KELOPAK BUNGA GUGUR (FALLING PETALS)
+    // =======================================================
+    (function initPetals() {
+      const canvas = document.getElementById('petalsCanvas');
+      const ctx = canvas.getContext('2d');
+      let width = canvas.width = canvas.parentElement.clientWidth;
+      let height = canvas.height = canvas.parentElement.clientHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = canvas.parentElement.clientWidth;
+        height = canvas.height = canvas.parentElement.clientHeight;
+      });
+
+      const petals = [];
+      const totalPetals = 18;
+
+      for (let i = 0; i < totalPetals; i++) {
+        petals.push({
+          x: Math.random() * width,
+          y: Math.random() * height - height,
+          size: Math.random() * 6 + 5,
+          speedY: Math.random() * 0.9 + 0.6,
+          speedX: Math.random() * 0.6 - 0.3,
+          rotation: Math.random() * 360,
+          rotationSpeed: Math.random() * 1.5 - 0.75,
+          opacity: Math.random() * 0.4 + 0.3
+        });
+      }
+
+      function drawPetal(x, y, size, rotation, opacity) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate((rotation * Math.PI) / 180);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(size, -size / 2, size * 1.5, size / 2, 0, size * 1.6);
+        ctx.bezierCurveTo(-size * 1.5, size / 2, -size, -size / 2, 0, 0);
+        ctx.fillStyle = `rgba(212, 175, 55, ${opacity * 0.65})`; // Kilauan Kelopak Emas
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        petals.forEach(p => {
+          p.y += p.speedY;
+          p.x += Math.sin(p.y * 0.01) * 0.6 + p.speedX;
+          p.rotation += p.rotationSpeed;
+
+          if (p.y > height + 20) {
+            p.y = -20;
+            p.x = Math.random() * width;
+          }
+
+          drawPetal(p.x, p.y, p.size, p.rotation, p.opacity);
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+    })();
 
     muatKomenLive();
   </script>
