@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Majlis Kesyukuran — Rosli & Noorazlina</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
@@ -58,7 +56,6 @@
     .font-sans-body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .font-arabic { font-family: 'Amiri', serif; }
     
-    /* Garden Gate 3D Animation */
     .gate-perspective {
       perspective: 1200px;
     }
@@ -125,87 +122,49 @@
 </head>
 <body class="text-slate-800 font-sans-body flex justify-center items-center h-full">
 
-  <!-- Container Utama Kad Jemputan -->
   <div id="mainContainer" class="w-full max-w-[420px] bg-damask h-full max-h-[100dvh] sm:max-h-[844px] shadow-2xl relative flex flex-col justify-between overflow-hidden border-x border-ashblue-800/40 sm:rounded-3xl">
 
-    <!-- ========================================== -->
-    <!-- 1. GARDEN GATE COVER OVERLAY               -->
-    <!-- ========================================== -->
+    <!-- COVER GARDEN GATE -->
     <div id="coverModal" class="cover-overlay gate-perspective fixed inset-0 z-50 bg-ashblue-950 flex items-center justify-center p-0 text-center text-slate-100 max-w-[420px] mx-auto sm:rounded-3xl overflow-hidden">
       
-      <!-- Pintu Gerbang Kiri -->
       <div id="gateLeft" class="gate-door-left absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-ashblue-950 via-ashblue-900 to-ashblue-900 border-r border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
-        <!-- Floral Garland SVG Left Top -->
         <svg class="w-full h-36 text-champagne-400/30" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10,10 Q60,30 110,10 Q90,60 110,110 Q60,90 10,110 Z" stroke-dasharray="3,3"/>
           <circle cx="35" cy="35" r="8" fill="currentColor" fill-opacity="0.2"/>
-          <circle cx="25" cy="35" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="45" cy="35" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="35" cy="25" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="35" cy="45" r="4" fill="currentColor" fill-opacity="0.3"/>
           <path d="M35,35 Q70,50 85,85" stroke="currentColor"/>
           <circle cx="85" cy="85" r="6" fill="currentColor" fill-opacity="0.2"/>
-          <path d="M15,20 Q30,10 40,25" fill="currentColor" fill-opacity="0.3"/>
-          <path d="M20,15 Q10,30 25,40" fill="currentColor" fill-opacity="0.3"/>
         </svg>
         <div class="h-16 w-8 rounded-r-full border-r-2 border-champagne-400/60 self-end mr-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <!-- Floral Garland SVG Left Bottom -->
         <svg class="w-full h-32 text-champagne-400/30 transform rotate-180" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10,10 Q60,30 110,10 Q90,60 110,110 Q60,90 10,110 Z" stroke-dasharray="3,3"/>
           <circle cx="35" cy="35" r="8" fill="currentColor" fill-opacity="0.2"/>
           <path d="M35,35 Q70,50 85,85" stroke="currentColor"/>
-          <circle cx="85" cy="85" r="6" fill="currentColor" fill-opacity="0.2"/>
         </svg>
       </div>
 
-      <!-- Pintu Gerbang Kanan -->
       <div id="gateRight" class="gate-door-right absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-ashblue-950 via-ashblue-900 to-ashblue-900 border-l border-champagne-400/40 flex flex-col justify-between p-4 z-10 shadow-2xl">
-        <!-- Floral Garland SVG Right Top -->
         <svg class="w-full h-36 text-champagne-400/30 transform scale-x-[-1]" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10,10 Q60,30 110,10 Q90,60 110,110 Q60,90 10,110 Z" stroke-dasharray="3,3"/>
           <circle cx="35" cy="35" r="8" fill="currentColor" fill-opacity="0.2"/>
-          <circle cx="25" cy="35" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="45" cy="35" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="35" cy="25" r="4" fill="currentColor" fill-opacity="0.3"/>
-          <circle cx="35" cy="45" r="4" fill="currentColor" fill-opacity="0.3"/>
           <path d="M35,35 Q70,50 85,85" stroke="currentColor"/>
           <circle cx="85" cy="85" r="6" fill="currentColor" fill-opacity="0.2"/>
-          <path d="M15,20 Q30,10 40,25" fill="currentColor" fill-opacity="0.3"/>
-          <path d="M20,15 Q10,30 25,40" fill="currentColor" fill-opacity="0.3"/>
         </svg>
         <div class="h-16 w-8 rounded-l-full border-l-2 border-champagne-400/60 self-start ml-0 bg-ashblue-800/40 flex items-center justify-center">
           <div class="w-2 h-2 rounded-full bg-champagne-400"></div>
         </div>
-        <!-- Floral Garland SVG Right Bottom -->
         <svg class="w-full h-32 text-champagne-400/30 transform scale-x-[-1] rotate-180" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M10,10 Q60,30 110,10 Q90,60 110,110 Q60,90 10,110 Z" stroke-dasharray="3,3"/>
           <circle cx="35" cy="35" r="8" fill="currentColor" fill-opacity="0.2"/>
           <path d="M35,35 Q70,50 85,85" stroke="currentColor"/>
-          <circle cx="85" cy="85" r="6" fill="currentColor" fill-opacity="0.2"/>
         </svg>
       </div>
 
-      <!-- Kad Tengah (Center Crest) -->
       <div id="gateCenterCard" class="relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
-        <!-- Corner Roses SVG in center card -->
-        <svg class="absolute -top-1 -left-1 w-12 h-12 text-champagne-400/40 pointer-events-none" viewBox="0 0 50 50" fill="currentColor">
-          <path d="M0,0 Q25,5 30,20 Q35,5 50,0 Q45,25 30,30 Q45,35 50,50 Q25,45 20,30 Q5,35 0,50 Q5,25 20,20 Z"/>
-        </svg>
-        <svg class="absolute -bottom-1 -right-1 w-12 h-12 text-champagne-400/40 transform rotate-180 pointer-events-none" viewBox="0 0 50 50" fill="currentColor">
-          <path d="M0,0 Q25,5 30,20 Q35,5 50,0 Q45,25 30,30 Q45,35 50,50 Q25,45 20,30 Q5,35 0,50 Q5,25 20,20 Z"/>
-        </svg>
-
         <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
 
         <div>
           <p class="text-champagne-400 text-xs tracking-[0.3em] uppercase font-semibold">Majlis Kesyukuran</p>
-          
-          <!-- Floral Separator -->
           <div class="flex items-center justify-center gap-2 my-2.5">
             <div class="h-[1px] w-8 bg-champagne-400/40"></div>
             <span class="text-champagne-400 text-sm">❀</span>
@@ -213,7 +172,6 @@
             <span class="text-champagne-400 text-sm">❀</span>
             <div class="h-[1px] w-8 bg-champagne-400/40"></div>
           </div>
-          
           <h1 class="font-script text-5xl text-white pt-1 leading-tight drop-shadow">Rosli</h1>
           <p class="text-sm font-serif-classic italic text-champagne-300 my-0.5">&</p>
           <h1 class="font-script text-5xl text-white leading-tight drop-shadow">Noorazlina</h1>
@@ -231,43 +189,21 @@
 
     </div>
 
-    <!-- ========================================== -->
-    <!-- PAGE 1: UTAMA / HOME                       -->
-    <!-- ========================================== -->
+    <!-- PAGE 1: UTAMA -->
     <div id="page-home" class="page-section active-page">
       <div class="pt-8 px-5 text-center space-y-6">
         
-        <!-- Header with Floral Arch Motif -->
         <div class="space-y-2 relative">
           <div class="flex justify-center items-center gap-2 text-champagne-500 opacity-80 mb-1">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg>
             <span class="text-xs font-serif-classic">✤ ✤ ✤</span>
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg>
           </div>
           <p class="font-arabic text-xl text-ashblue-800 tracking-wider">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
-        <!-- Main Couple Card with Botanical Floral Border -->
         <div class="py-8 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/40 shadow-md relative overflow-hidden">
-          
-          <!-- Ornate Floral Corner Accessories -->
-          <svg class="absolute top-2 left-2 w-10 h-10 text-champagne-500/50 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
-          </svg>
-          <svg class="absolute top-2 right-2 w-10 h-10 text-champagne-500/50 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
-          </svg>
-          <svg class="absolute bottom-2 left-2 w-10 h-10 text-champagne-500/50 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
-          </svg>
-          <svg class="absolute bottom-2 right-2 w-10 h-10 text-champagne-500/50 transform rotate-180 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
-          </svg>
-
           <p class="font-serif-classic text-champagne-600 text-xs tracking-[0.2em] uppercase font-semibold">Tuan Rumah & Keluarga</p>
           <h1 class="font-script text-6xl text-ashblue-950 pt-1 leading-none drop-shadow-sm">Rosli</h1>
-          
           <div class="flex items-center justify-center gap-3 my-1">
             <div class="h-[1px] w-12 bg-champagne-400"></div>
             <span class="text-champagne-500 text-sm">❦</span>
@@ -275,7 +211,6 @@
             <span class="text-champagne-500 text-sm">❦</span>
             <div class="h-[1px] w-12 bg-champagne-400"></div>
           </div>
-          
           <h1 class="font-script text-6xl text-ashblue-950 pb-1 leading-none drop-shadow-sm">Noorazlina</h1>
         </div>
 
@@ -283,20 +218,14 @@
           JUMAAT | 25 SEPTEMBER 2026
         </div>
 
-        <!-- Quran Verse with Floral Vignette -->
         <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative">
-          <div class="text-champagne-500 text-xs mb-1">❀ ❁ ❀</div>
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
             "Dan jika kamu menghitung nikmat Allah, nescaya kamu tidak akan mampu mengiranya. Sesungguhnya Allah benar-benar Maha Pengampun, Maha Penyayang."
           </p>
           <p class="text-[10px] text-ashblue-800 tracking-wider font-bold uppercase">— Surah An-Nahl: 18</p>
         </div>
 
-        <!-- Countdown Timer -->
         <div class="bg-ashblue-900 text-white p-5 rounded-2xl border border-champagne-400/40 shadow-md text-center relative overflow-hidden">
-          <div class="absolute -right-4 -bottom-4 text-champagne-400/10 pointer-events-none">
-            <svg class="w-24 h-24" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/></svg>
-          </div>
           <p class="text-[10px] text-champagne-400 tracking-widest uppercase font-semibold mb-3">Menghitung Hari</p>
           <div class="grid grid-cols-4 gap-2 text-center relative z-10">
             <div class="bg-ashblue-800/90 p-2.5 rounded-xl border border-ashblue-700"><span id="days" class="block text-2xl font-bold text-champagne-300">00</span><span class="text-[9px] text-ashblue-200">Hari</span></div>
@@ -309,28 +238,16 @@
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- PAGE 2: MAJLIS & RSVP                      -->
-    <!-- ========================================== -->
+    <!-- PAGE 2: MAJLIS & RSVP -->
     <div id="page-details" class="page-section">
       <div class="pt-8 px-5 text-center space-y-6">
         
         <div class="space-y-1">
-          <div class="flex justify-center items-center gap-2 text-champagne-600 text-xs">
-            <span>❧</span><span>✿</span><span>❧</span>
-          </div>
           <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Atur Cara & Lokasi</h2>
           <h1 class="font-script text-5xl text-ashblue-900">Maklumat Majlis</h1>
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-5 relative overflow-hidden">
-          
-          <!-- Decorative Floral Garland -->
-          <svg class="absolute top-0 right-0 w-16 h-16 text-champagne-400/20 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <circle cx="80" cy="20" r="15"/>
-            <path d="M50,10 Q70,30 90,10 Q70,50 90,90 Q50,70 10,90 Q30,70 10,50 Q30,30 50,10 Z"/>
-          </svg>
-
           <div class="space-y-1">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Masa Majlis</h3>
             <p class="text-base font-semibold text-slate-800">11:00 AM – 4:00 PM</p>
@@ -350,16 +267,16 @@
           </div>
 
           <div class="flex gap-3 justify-center pt-2">
-            <a href="https://maps.app.goo.gl/afW8aeptaYxJvXte9" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600 flex items-center justify-center gap-1.5">
-              <span>Google Maps</span>
+            <a href="https://maps.app.goo.gl/afW8aeptaYxJvXte9" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-ashblue-700 hover:bg-ashblue-800 text-white rounded-xl text-xs font-semibold shadow-md transition text-center border border-ashblue-600">
+              Google Maps
             </a>
-            <a href="https://ul.waze.com/ul?venue_id=67567669.675807764.2392511&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center flex items-center justify-center gap-1.5">
-              <span>Waze</span>
+            <a href="https://ul.waze.com/ul?venue_id=67567669.675807764.2392511&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-md transition text-center">
+              Waze
             </a>
           </div>
         </div>
 
-        <!-- Borang RSVP -->
+        <!-- BORANG RSVP -->
         <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left relative">
           <div class="text-center">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
@@ -395,16 +312,11 @@
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- PAGE 3: UCAPAN & DOA (LIVE DATABASE)       -->
-    <!-- ========================================== -->
+    <!-- PAGE 3: UCAPAN & DOA (LIVE DATABASE) -->
     <div id="page-comments" class="page-section">
       <div class="pt-8 px-5 space-y-6">
         
         <div class="text-center space-y-1">
-          <div class="flex justify-center items-center gap-2 text-champagne-600 text-xs">
-            <span>❀</span><span>❦</span><span>❀</span>
-          </div>
           <h2 class="text-xs text-ashblue-700 font-bold tracking-widest uppercase">Titipan Doa</h2>
           <h1 class="font-script text-5xl text-ashblue-900">Ucapan Tetamu</h1>
         </div>
@@ -436,9 +348,7 @@
       </div>
     </div>
 
-    <!-- ======================================================= -->
-    <!-- BOTTOM NAVIGATION BAR                                   -->
-    <!-- ======================================================= -->
+    <!-- BOTTOM NAVBAR -->
     <nav class="fixed bottom-0 left-0 right-0 max-w-[420px] mx-auto bg-ashblue-900/95 backdrop-blur-md border-t border-champagne-400/30 px-6 pt-2.5 safe-bottom z-40 flex justify-around items-center text-white shadow-[0_-4px_25px_rgba(0,0,0,0.3)]">
       <button onclick="switchPage('page-home')" id="nav-home" class="flex flex-col items-center gap-1 text-champagne-400 transition py-1">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
@@ -464,12 +374,13 @@
   </div>
 
   <script>
-    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoD0BVD3wxU3LLSvCrOgupUzaaC5Qa30Ce0ALWKg_omXMSJ7yVqjVgQ-S_oAE7RqnjdQ/exec";
+    // URL Google Apps Script yang telah diasingkan
+    const RSVP_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzpIUgku6MKZUTNlQPSwcuXXNfMjtJjkLE7_n6AgBtqREZHtANG0jf0nFLQ4kVjQ28PKw/exec";
+    const UCAPAN_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQjEx0JdSx3C46mcu-hYexRbNnQtJOh_E2flyhvCrq7-RxlnKy9Y0EicIUeA34Yc-U/exec";
 
     let isOwner = false;
     let liveComments = [];
 
-    // Menggunakan nama fail IppoHafiz.mp3
     const basePath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
     const audio = new Audio(basePath + 'IppoHafiz.mp3');
     audio.loop = true;
@@ -525,7 +436,6 @@
       document.getElementById('btnOwner').innerText = 'Mode Owner: ON';
     }
 
-    // Animasi Pintu Gerbang Bunga
     function bukaKad() {
       const gateLeft = document.getElementById('gateLeft');
       const gateRight = document.getElementById('gateRight');
@@ -575,7 +485,6 @@
       }
     }
 
-    // Countdown Timer
     const tarikhMajlis = new Date("2026-09-25T11:00:00").getTime();
     setInterval(() => {
       const sekarang = new Date().getTime();
@@ -589,7 +498,7 @@
       }
     }, 1000);
 
-    // RSVP Google Sheets
+    // HANTAR RSVP (TERUS KE GOOGLE SHEET RSVP)
     function hantarRSVPSheet(e) {
       e.preventDefault();
       
@@ -604,13 +513,12 @@
       mesejEl.classList.add('hidden');
 
       const payload = {
-        action: "rsvp",
         nama: nama,
         status: status,
         pax: pax
       };
 
-      fetch(GOOGLE_SCRIPT_URL, {
+      fetch(RSVP_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
@@ -630,9 +538,9 @@
       });
     }
 
-    // LIVE UCAPAN (GOOGLE SHEETS)
+    // TARIK DATA UCAPAN DARI GOOGLE SHEET UCAPAN
     function muatKomenLive() {
-      fetch(GOOGLE_SCRIPT_URL)
+      fetch(UCAPAN_SCRIPT_URL)
         .then(res => res.json())
         .then(data => {
           liveComments = data || [];
@@ -673,6 +581,7 @@
       });
     }
 
+    // HANTAR UCAPAN KE GOOGLE SHEET UCAPAN
     function tambahKomenLive(e) {
       e.preventDefault();
       const btn = document.getElementById('btnKirimKomen');
@@ -684,13 +593,16 @@
       btn.disabled = true;
       btn.innerText = "Menghantar...";
 
+      liveComments.unshift({ row: null, nama: nama, ucapan: ucapan });
+      renderKomen();
+
       const payload = {
         action: "tambah_ucapan",
         nama: nama,
         ucapan: ucapan
       };
 
-      fetch(GOOGLE_SCRIPT_URL, {
+      fetch(UCAPAN_SCRIPT_URL, {
         method: "POST",
         mode: "no-cors",
         headers: { "Content-Type": "application/json" },
@@ -700,12 +612,11 @@
         document.getElementById('komenTeks').value = '';
         btn.disabled = false;
         btn.innerText = "Kirim Ucapan";
-        setTimeout(muatKomenLive, 1200);
+        setTimeout(muatKomenLive, 1500);
       })
       .catch(err => {
         btn.disabled = false;
         btn.innerText = "Kirim Ucapan";
-        alert("Gagal menghantar ucapan.");
       });
     }
 
@@ -716,13 +627,13 @@
           row: rowNum
         };
 
-        fetch(GOOGLE_SCRIPT_URL, {
+        fetch(UCAPAN_SCRIPT_URL, {
           method: "POST",
           mode: "no-cors",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         }).then(() => {
-          setTimeout(muatKomenLive, 1200);
+          setTimeout(muatKomenLive, 1500);
         });
       }
     }
