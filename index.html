@@ -87,7 +87,6 @@
       pointer-events: none;
     }
 
-    /* Animasi Transisi Halaman Meluncur */
     .page-section {
       opacity: 0;
       visibility: hidden;
@@ -128,7 +127,6 @@
     #petalsCanvas { z-index: 15; }
     #sparkleCanvas { z-index: 60; }
 
-    /* Shimmer Effect */
     .shimmer-card {
       position: relative;
       overflow: hidden;
@@ -171,7 +169,6 @@
       to { background-position: 200% center; }
     }
 
-    /* Denyutan Halus CTA */
     @keyframes pulseGlow {
       0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.5); }
       70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
@@ -223,8 +220,36 @@
         </svg>
       </div>
 
+      <!-- Kad Tengah (Center Crest dengan Bunga Bucu Emas) -->
       <div id="gateCenterCard" class="shimmer-card relative z-20 border-2 border-champagne-400/60 p-7 rounded-3xl bg-ashblue-950/95 shadow-[0_0_35px_rgba(212,175,55,0.25)] w-full max-w-[320px] space-y-5 mx-4 transition duration-500 overflow-hidden">
         
+        <!-- Golden Corner Flowers (Top-Left & Top-Right) -->
+        <svg class="absolute top-1.5 left-1.5 w-12 h-12 text-champagne-400/60 pointer-events-none" viewBox="0 0 60 60" fill="none">
+          <path d="M4,4 L28,4 C24,12 12,24 4,28 Z" fill="currentColor" fill-opacity="0.25"/>
+          <path d="M4,4 Q24,6 30,22 Q36,6 56,4 Q50,24 56,44 Q36,38 30,56 Q24,38 4,44 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="30" cy="22" r="3" fill="currentColor"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <svg class="absolute top-1.5 right-1.5 w-12 h-12 text-champagne-400/60 transform scale-x-[-1] pointer-events-none" viewBox="0 0 60 60" fill="none">
+          <path d="M4,4 L28,4 C24,12 12,24 4,28 Z" fill="currentColor" fill-opacity="0.25"/>
+          <path d="M4,4 Q24,6 30,22 Q36,6 56,4 Q50,24 56,44 Q36,38 30,56 Q24,38 4,44 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="30" cy="22" r="3" fill="currentColor"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <!-- Golden Corner Flowers (Bottom-Left & Bottom-Right) -->
+        <svg class="absolute bottom-1.5 left-1.5 w-12 h-12 text-champagne-400/60 transform scale-y-[-1] pointer-events-none" viewBox="0 0 60 60" fill="none">
+          <path d="M4,4 L28,4 C24,12 12,24 4,28 Z" fill="currentColor" fill-opacity="0.25"/>
+          <path d="M4,4 Q24,6 30,22 Q36,6 56,4 Q50,24 56,44 Q36,38 30,56 Q24,38 4,44 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="30" cy="22" r="3" fill="currentColor"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+        <svg class="absolute bottom-1.5 right-1.5 w-12 h-12 text-champagne-400/60 transform rotate-180 pointer-events-none" viewBox="0 0 60 60" fill="none">
+          <path d="M4,4 L28,4 C24,12 12,24 4,28 Z" fill="currentColor" fill-opacity="0.25"/>
+          <path d="M4,4 Q24,6 30,22 Q36,6 56,4 Q50,24 56,44 Q36,38 30,56 Q24,38 4,44 Z" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="30" cy="22" r="3" fill="currentColor"/>
+          <circle cx="16" cy="16" r="2" fill="currentColor"/>
+        </svg>
+
         <div class="w-13 h-13 bg-gradient-to-tr from-ashblue-800 to-ashblue-700 rounded-full flex items-center justify-center mx-auto border-2 border-champagne-400/60 text-champagne-300 shadow-md p-3">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         </div>
@@ -267,19 +292,40 @@
           <p class="text-xs text-ashblue-700 tracking-[0.25em] uppercase font-bold">Undangan Majlis Kesyukuran</p>
         </div>
         
+        <!-- Main Couple Card dengan Bunga Emas di Setiap Bucu -->
         <div class="shimmer-card py-8 px-4 space-y-3 rounded-3xl bg-white/95 backdrop-blur-sm border-2 border-champagne-400/50 shadow-lg relative overflow-hidden">
           
-          <svg class="absolute top-2 left-2 w-10 h-10 text-champagne-500/40 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
+          <!-- Bunga Emas Bucu Atas Kiri -->
+          <svg class="absolute top-1.5 left-1.5 w-14 h-14 text-champagne-500/60 pointer-events-none" viewBox="0 0 100 100" fill="none">
+            <path d="M5,5 Q35,8 45,30 Q55,10 80,5 Q60,35 70,60 Q45,45 30,75 Q25,40 5,35 Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="45" cy="30" r="4" fill="currentColor"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+            <path d="M15,10 Q25,25 10,40" stroke="currentColor" stroke-width="1"/>
+            <path d="M10,15 Q25,25 40,10" stroke="currentColor" stroke-width="1"/>
           </svg>
-          <svg class="absolute top-2 right-2 w-10 h-10 text-champagne-500/40 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
+          <!-- Bunga Emas Bucu Atas Kanan -->
+          <svg class="absolute top-1.5 right-1.5 w-14 h-14 text-champagne-500/60 transform scale-x-[-1] pointer-events-none" viewBox="0 0 100 100" fill="none">
+            <path d="M5,5 Q35,8 45,30 Q55,10 80,5 Q60,35 70,60 Q45,45 30,75 Q25,40 5,35 Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="45" cy="30" r="4" fill="currentColor"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+            <path d="M15,10 Q25,25 10,40" stroke="currentColor" stroke-width="1"/>
+            <path d="M10,15 Q25,25 40,10" stroke="currentColor" stroke-width="1"/>
           </svg>
-          <svg class="absolute bottom-2 left-2 w-10 h-10 text-champagne-500/40 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
+          <!-- Bunga Emas Bucu Bawah Kiri -->
+          <svg class="absolute bottom-1.5 left-1.5 w-14 h-14 text-champagne-500/60 transform scale-y-[-1] pointer-events-none" viewBox="0 0 100 100" fill="none">
+            <path d="M5,5 Q35,8 45,30 Q55,10 80,5 Q60,35 70,60 Q45,45 30,75 Q25,40 5,35 Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="45" cy="30" r="4" fill="currentColor"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+            <path d="M15,10 Q25,25 10,40" stroke="currentColor" stroke-width="1"/>
+            <path d="M10,15 Q25,25 40,10" stroke="currentColor" stroke-width="1"/>
           </svg>
-          <svg class="absolute bottom-2 right-2 w-10 h-10 text-champagne-500/40 transform rotate-180 pointer-events-none" viewBox="0 0 100 100" fill="currentColor">
-            <path d="M0,0 Q30,5 40,25 Q50,10 70,5 Q55,30 65,50 Q40,40 30,65 Q25,35 0,30 Z"/>
+          <!-- Bunga Emas Bucu Bawah Kanan -->
+          <svg class="absolute bottom-1.5 right-1.5 w-14 h-14 text-champagne-500/60 transform rotate-180 pointer-events-none" viewBox="0 0 100 100" fill="none">
+            <path d="M5,5 Q35,8 45,30 Q55,10 80,5 Q60,35 70,60 Q45,45 30,75 Q25,40 5,35 Z" fill="currentColor" fill-opacity="0.15" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="45" cy="30" r="4" fill="currentColor"/>
+            <circle cx="20" cy="20" r="2.5" fill="currentColor"/>
+            <path d="M15,10 Q25,25 10,40" stroke="currentColor" stroke-width="1"/>
+            <path d="M10,15 Q25,25 40,10" stroke="currentColor" stroke-width="1"/>
           </svg>
 
           <p class="gold-foil-text text-xs tracking-[0.25em] uppercase font-bold font-serif-classic">Tuan Rumah & Keluarga</p>
@@ -299,6 +345,7 @@
             JUMAAT | 25 SEPTEMBER 2026
           </div>
 
+          <!-- BUTANG ADD TO CALENDAR -->
           <div class="flex gap-2 justify-center pt-1">
             <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Majlis+Kesyukuran+Rosli+%26+Noorazlina&dates=20260925T030000Z/20260925T080000Z&details=Undangan+ke+Majlis+Kesyukuran+Rosli+%26+Noorazlina&location=Bahiyah+Homestay,+Kuala+Terengganu" target="_blank" rel="noopener noreferrer" class="py-2 px-3.5 bg-white/90 hover:bg-white text-ashblue-900 rounded-xl text-[11px] font-semibold shadow-sm border border-champagne-400/40 flex items-center gap-1.5 transition active:scale-95">
               <svg class="w-3.5 h-3.5 text-champagne-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
@@ -311,7 +358,16 @@
           </div>
         </div>
 
-        <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative">
+        <div class="bg-white/95 p-5 rounded-2xl border border-ashblue-200 shadow-sm space-y-2 text-center relative overflow-hidden">
+          <!-- Bunga Bucu Halus Ayat Quran -->
+          <svg class="absolute top-1 left-1 w-6 h-6 text-champagne-500/40 pointer-events-none" viewBox="0 0 50 50" fill="currentColor">
+            <circle cx="15" cy="15" r="8"/>
+            <path d="M15,15 Q35,15 45,5 Q35,35 15,15 Z"/>
+          </svg>
+          <svg class="absolute bottom-1 right-1 w-6 h-6 text-champagne-500/40 transform rotate-180 pointer-events-none" viewBox="0 0 50 50" fill="currentColor">
+            <circle cx="15" cy="15" r="8"/>
+            <path d="M15,15 Q35,15 45,5 Q35,35 15,15 Z"/>
+          </svg>
           <p class="text-xs text-slate-700 italic font-serif-classic leading-relaxed">
             "Dan jika kamu menghitung nikmat Allah, nescaya kamu tidak akan mampu mengiranya. Sesungguhnya Allah benar-benar Maha Pengampun, Maha Penyayang."
           </p>
@@ -341,6 +397,16 @@
         </div>
 
         <div class="bg-white/95 p-6 rounded-2xl border-2 border-champagne-400/30 shadow-sm space-y-5 relative overflow-hidden">
+          <!-- Bunga Bucu Emas Lokasi -->
+          <svg class="absolute top-1.5 left-1.5 w-10 h-10 text-champagne-400/40 pointer-events-none" viewBox="0 0 60 60" fill="currentColor">
+            <circle cx="15" cy="15" r="7"/>
+            <path d="M5,5 Q30,5 35,25 Q15,35 5,5 Z"/>
+          </svg>
+          <svg class="absolute top-1.5 right-1.5 w-10 h-10 text-champagne-400/40 transform scale-x-[-1] pointer-events-none" viewBox="0 0 60 60" fill="currentColor">
+            <circle cx="15" cy="15" r="7"/>
+            <path d="M5,5 Q30,5 35,25 Q15,35 5,5 Z"/>
+          </svg>
+
           <div class="space-y-1">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Masa Majlis</h3>
             <p class="text-base font-semibold text-slate-800">11:00 AM – 4:00 PM</p>
@@ -370,7 +436,13 @@
         </div>
 
         <!-- BORANG RSVP -->
-        <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left relative">
+        <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 text-left relative overflow-hidden">
+          <!-- Bunga Bucu Halus RSVP -->
+          <svg class="absolute bottom-1.5 right-1.5 w-12 h-12 text-champagne-400/30 transform rotate-180 pointer-events-none" viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M5,5 Q30,5 35,25 Q15,35 5,5 Z" fill="currentColor" fill-opacity="0.15"/>
+            <circle cx="15" cy="15" r="5" fill="currentColor"/>
+          </svg>
+
           <div class="text-center">
             <h3 class="text-xs text-ashblue-800 font-bold tracking-widest uppercase">Pengesahan Kehadiran (RSVP)</h3>
             <p class="text-[11px] text-slate-500 mt-0.5">Sila lengkapkan maklumat kehadiran anda</p>
@@ -414,7 +486,12 @@
           <h1 class="font-script text-5xl text-ashblue-900">Ucapan Tetamu</h1>
         </div>
 
-        <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4">
+        <div class="bg-white/95 p-6 rounded-2xl shadow-sm border border-ashblue-200 space-y-4 relative overflow-hidden">
+          <svg class="absolute top-1.5 right-1.5 w-10 h-10 text-champagne-400/30 transform scale-x-[-1] pointer-events-none" viewBox="0 0 60 60" fill="currentColor">
+            <circle cx="15" cy="15" r="6"/>
+            <path d="M5,5 Q30,5 35,25 Q15,35 5,5 Z"/>
+          </svg>
+
           <form onsubmit="tambahKomenLive(event)" class="space-y-3 text-xs">
             <div>
               <input type="text" id="komenNama" required placeholder="Nama Anda" class="w-full p-3 border border-ashblue-200 rounded-xl focus:outline-none focus:border-ashblue-500 bg-ashblue-50/50">
@@ -772,9 +849,6 @@
       return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
     }
 
-    // =======================================================
-    // 1. ANIMASI KELOPAK BUNGA GUGUR (FALLING PETALS)
-    // =======================================================
     (function initPetals() {
       const canvas = document.getElementById('petalsCanvas');
       const ctx = canvas.getContext('2d');
@@ -834,9 +908,6 @@
       animate();
     })();
 
-    // =======================================================
-    // 2. ANIMASI PERCIKAN DEBU EMAS (TOUCH & CLICK SPARKLES)
-    // =======================================================
     (function initSparkles() {
       const canvas = document.getElementById('sparkleCanvas');
       const ctx = canvas.getContext('2d');
